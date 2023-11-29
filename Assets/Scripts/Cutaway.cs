@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-[ExecuteInEditMode, RequireComponent(typeof(Renderer))]
 public class Cutaway : MonoBehaviour
 {
-    public GameObject other;
+    [SerializeField] float windowSpeed = 10;
 
-    [SerializeField] float apertureSpeed = 10;
+    [SerializeField] GameObject other;
+    [SerializeField] Slider windowSlider;
 
     void Update()
     {
@@ -21,25 +22,40 @@ public class Cutaway : MonoBehaviour
 
             Vector3 scale = other.transform.localScale;
 
-            float distanceChange = apertureSpeed * Time.deltaTime;
+            float distanceChange = windowSpeed * Time.deltaTime;
 
             if (Input.GetKey(KeyCode.Equals))
             {
-                if (scale.x + distanceChange < scale.y / 2)
+                if (scale.x + distanceChange < windowSlider.maxValue)
                 {
-                    scale.z = scale.x += distanceChange;
+                    windowSlider.value = scale.z = scale.x += distanceChange;
                 }
-                other.transform.localScale = scale;
-            }
+             }
 
             if (Input.GetKey(KeyCode.Minus))
             {
                 if (scale.x - distanceChange > 0)
                 {
-                    scale.z = scale.x -= distanceChange;
+                    windowSlider.value = scale.z = scale.x -= distanceChange;
                 }
-                other.transform.localScale = scale;
             }
+
+            scale.z = scale.x = windowSlider.value;
+
+            other.transform.localScale = scale;
         }
     }
+
+    /*public void ResizeWindow()
+    {
+        GetComponent<Renderer>().sharedMaterial.SetFloat("_CutterRadius",
+            other.GetComponent<CapsuleCollider>().radius);
+
+        GetComponent<Renderer>().sharedMaterial.SetMatrix("_InverseModelMatrix",
+            other.GetComponent<Renderer>().worldToLocalMatrix);
+
+        Vector3 scale = other.transform.localScale;
+        scale.z = scale.x = windowSlider.value;
+        other.transform.localScale = scale;
+    }*/
 }

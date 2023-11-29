@@ -39,6 +39,6 @@ public class CameraController : MonoBehaviour
         {
             transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
         }
-        transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime * spinValue);
+        transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime * spinValue);
     }
 }
