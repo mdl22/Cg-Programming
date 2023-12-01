@@ -16,29 +16,35 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        zoomValue = FindObjectOfType<PlayerController>().RecalibrateSlider(zoomSlider, cutoff);
-        spinValue = FindObjectOfType<PlayerController>().RecalibrateSlider(spinSlider, cutoff);
+        float horizontalKeyValue = -Input.GetAxis("Horizontal");
+        float verticalKeyValue = Input.GetAxis("Vertical");
 
-        // Zoomd in and out based on key input and slider
-        if (Input.GetKey(KeyCode.F))
-        {
-            transform.position += Vector3.forward * speed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.B))
-        {
-            transform.position += Vector3.back * speed * Time.deltaTime;
-        }
-        transform.position += Vector3.forward * speed * Time.deltaTime * zoomValue;
+        zoomValue = RecalibrateSlider(zoomSlider, cutoff);
+        spinValue = RecalibrateSlider(spinSlider, cutoff);
+
+        // Zooms in and out based on vertical input
+        transform.position += Vector3.forward * speed * Time.deltaTime * verticalKeyValue;
+        transform.position -= Vector3.forward * speed * Time.deltaTime * zoomValue;
 
         // Rotates around y-axis based on key input and slider
-        if (Input.GetKey(KeyCode.L))
-        {
-            transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.R))
-        {
-            transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
-        }
+        transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime * horizontalKeyValue);
         transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime * spinValue);
+    }
+
+    float RecalibrateSlider(Slider slider, float cutoff)
+    // Returns 0 at -cutoff and cutoff, but minValue and maxValue unchanged
+    {
+        if (slider.value < -cutoff)
+        {
+            return -(slider.value + cutoff) / (slider.minValue + cutoff);
+        }
+        else if (slider.value > cutoff)
+        {
+            return (slider.value - cutoff) / (slider.maxValue - cutoff);
+        }
+        else
+        {
+            return 0;
+        }
     }
 }

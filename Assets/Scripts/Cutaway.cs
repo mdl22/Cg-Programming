@@ -45,17 +45,4 @@ public class Cutaway : MonoBehaviour
             other.transform.localScale = scale;
         }
     }
-
-    /*public void ResizeWindow()
-    {
-        GetComponent<Renderer>().sharedMaterial.SetFloat("_CutterRadius",
-            other.GetComponent<CapsuleCollider>().radius);
-
-        GetComponent<Renderer>().sharedMaterial.SetMatrix("_InverseModelMatrix",
-            other.GetComponent<Renderer>().worldToLocalMatrix);
-
-        Vector3 scale = other.transform.localScale;
-        scale.z = scale.x = windowSlider.value;
-        other.transform.localScale = scale;
-    }*/
 }
