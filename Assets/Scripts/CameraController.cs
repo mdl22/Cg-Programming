@@ -7,44 +7,47 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] float speed = 10;
     [SerializeField] float turnSpeed = 40;
-    [SerializeField] float cutoff = 0.1f;
-    float zoomValue;
-    float spinValue;
-
     [SerializeField] Slider zoomSlider;
     [SerializeField] Slider spinSlider;
 
+    Vector3 startPosition;
+
+    void Start()
+    {
+        startPosition = transform.position;
+
+        zoomSlider.value = zoomSlider.minValue = startPosition.z;
+        zoomSlider.maxValue = 0;
+    }
+
     void Update()
     {
+        float distance = speed * Time.deltaTime;
+        float angle = turnSpeed * Time.deltaTime;
         float horizontalKeyValue = -Input.GetAxis("Horizontal");
         float verticalKeyValue = Input.GetAxis("Vertical");
 
-        zoomValue = RecalibrateSlider(zoomSlider, cutoff);
-        spinValue = RecalibrateSlider(spinSlider, cutoff);
-
-        // Zooms in and out based on vertical input
-        transform.position += Vector3.forward * speed * Time.deltaTime * verticalKeyValue;
-        transform.position -= Vector3.forward * speed * Time.deltaTime * zoomValue;
-
-        // Rotates around y-axis based on key input and slider
-        transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime * horizontalKeyValue);
-        transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime * spinValue);
-    }
-
-    float RecalibrateSlider(Slider slider, float cutoff)
-    // Returns 0 at -cutoff and cutoff, but minValue and maxValue unchanged
-    {
-        if (slider.value < -cutoff)
+        // Zooms in and out based on key input and slider
+        if (verticalKeyValue != 0)
         {
-            return -(slider.value + cutoff) / (slider.minValue + cutoff);
-        }
-        else if (slider.value > cutoff)
-        {
-            return (slider.value - cutoff) / (slider.maxValue - cutoff);
+            transform.position += Vector3.forward * distance * verticalKeyValue;
+            if (transform.position.z > 0)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+            }
+            else if (transform.position.z < startPosition.z)
+            {
+                transform.position = startPosition;
+            }
+            zoomSlider.value = transform.position.z;
         }
         else
         {
-            return 0;
+            transform.position = new Vector3(
+                transform.position.x, transform.position.y, zoomSlider.value);
         }
+
+        // Rotates around y-axis based on key input
+        transform.Rotate(Vector3.up, angle * horizontalKeyValue);
     }
 }

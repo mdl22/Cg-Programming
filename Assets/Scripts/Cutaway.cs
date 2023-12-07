@@ -21,7 +21,6 @@ public class Cutaway : MonoBehaviour
                 other.GetComponent<Renderer>().worldToLocalMatrix);
 
             Vector3 scale = other.transform.localScale;
-
             float distanceChange = windowSpeed * Time.deltaTime;
 
             if (Input.GetKey(KeyCode.Equals))
