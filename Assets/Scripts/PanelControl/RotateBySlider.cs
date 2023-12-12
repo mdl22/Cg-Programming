@@ -7,9 +7,12 @@ public class RotateBySlider : MonoBehaviour
 {
     [SerializeField] GameObject other;
     [SerializeField] Camera mainCamera;
+    [SerializeField] Transform customPivot;
     [SerializeField] Slider horizontalSlider;
     [SerializeField] Slider verticalSlider;
     [SerializeField] Slider spinSlider;
+    [SerializeField] Slider zoomSlider;
+    [SerializeField] Slider windowSlider;
 
     public Button resetButton;
 
@@ -21,17 +24,25 @@ public class RotateBySlider : MonoBehaviour
 
     public void RotateObject()
     {
+        // move to world origin using pivot offset
+        other.transform.position += customPivot.position;
+
         other.transform.localEulerAngles = new Vector3(
             verticalSlider.value, 0, horizontalSlider.value);
+
+        // move back to position
+        other.transform.position -= customPivot.position;
     }
 
     public void RotateCamera()
     {
-        mainCamera.transform.localEulerAngles = new Vector3(0, -spinSlider.value, 0);
+        mainCamera.transform.localEulerAngles = new Vector3(0, spinSlider.value, 0);
     }
 
     void ResetSliders()
     {
-        horizontalSlider.value = verticalSlider.value = 0;
+        spinSlider.value = verticalSlider.value = horizontalSlider.value = 0;
+        zoomSlider.value = zoomSlider.minValue;
+        windowSlider.value = windowSlider.minValue;
     }
 }

@@ -7,8 +7,6 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float speed = 40;
     [SerializeField] Transform customPivot;
-    [SerializeField] Slider horizontalSlider;
-    [SerializeField] Slider verticalSlider;
 
     void Update()
     {

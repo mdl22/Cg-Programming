@@ -21,8 +21,6 @@ public class ButtonController : MonoBehaviour
 
     void ResetTransform()
     {
-        //horizontalSlider.value = verticalSlider.value = 0;
-
         transform.position = originalPos;
         transform.rotation = originalRot;
     }
