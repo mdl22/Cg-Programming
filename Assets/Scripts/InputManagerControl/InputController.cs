@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class InputController : MonoBehaviour
 {
     [SerializeField] float speed = 40;
     [SerializeField] Transform customPivot;
@@ -12,20 +13,20 @@ public class PlayerController : MonoBehaviour
         float angle = speed * Time.deltaTime;
 
         // Rotates around y-axis based on key input
-        if (Input.GetButton("Rotate Left"))
+        if (Input.GetKey(KeyCode.A))
         {
             transform.RotateAround(customPivot.position, Vector3.up, angle);
         }
-        else if (Input.GetButton("Rotate Right"))
+        else if (Input.GetKey(KeyCode.D))
         {
             transform.RotateAround(customPivot.position, Vector3.down, angle);
         }
         // Rotates around x-axis based on key input
-        else if (Input.GetButton("Rotate Up"))
+        else if (Input.GetKey(KeyCode.W))
         {
             transform.RotateAround(customPivot.position, Vector3.right, angle);
         }
-        else if (Input.GetButton("Rotate Down"))
+        else if (Input.GetKey(KeyCode.S))
         {
             transform.RotateAround(customPivot.position, Vector3.left, angle);
         }

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class KeyCutaway : MonoBehaviour
 {
@@ -30,7 +29,7 @@ public class KeyCutaway : MonoBehaviour
             Vector3 scale = other.transform.localScale;
 
             // Enlarge window if "+" key pressed
-            if (Input.GetKey(KeyCode.Equals))
+            if (Input.GetButton("Enlarge"))
             {
                 scale.z = scale.x += distanceChange;
                 if (scale.x > size)
@@ -39,7 +38,7 @@ public class KeyCutaway : MonoBehaviour
                 }
             }
             // Shrink window if "-" key pressed
-            else if (Input.GetKey(KeyCode.Minus))
+            else if (Input.GetButton("Shrink"))
             {
                 scale.z = scale.x -= distanceChange;
                 if (scale.x < 0)
