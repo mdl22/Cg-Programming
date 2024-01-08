@@ -22,8 +22,9 @@ public class KeyCameraController : MonoBehaviour
         float horizontalKeyValue = -Input.GetAxis("Horizontal");
         float verticalKeyValue = Input.GetAxis("Vertical");
 
-        // Zooms in and out based on arrow key input
+        // Zoom in and out based on arrow key input
         transform.position += Vector3.forward * distance * verticalKeyValue;
+
         if (transform.position.z > 0)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, 0);
@@ -33,7 +34,7 @@ public class KeyCameraController : MonoBehaviour
             transform.position = startPosition;
         }
 
-        // Rotates around y-axis based on arrow key input
+        // Rotate around y-axis based on arrow key input
         transform.Rotate(Vector3.up, -angle * horizontalKeyValue);
     }
 }

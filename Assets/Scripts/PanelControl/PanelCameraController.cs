@@ -19,7 +19,7 @@ public class PanelCameraController : MonoBehaviour
 
     void Update()
     {
-        // Zooms in and out based on slider
+        // zoom in and out based on a slider
         transform.position = new Vector3(
             transform.position.x, transform.position.y, zoomSlider.value);
     }

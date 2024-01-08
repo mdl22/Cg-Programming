@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Reset : MonoBehaviour
+public class TouchReset : MonoBehaviour
 {
     Vector3 originalPos;
     Quaternion originalRot;
@@ -15,7 +15,7 @@ public class Reset : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButton("Reset"))
+        if (Input.GetTouch(0).tapCount == 2)
         {
             transform.position = originalPos;
             transform.rotation = originalRot;

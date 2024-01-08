@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResetInputManager : MonoBehaviour
+public class KeyReset : MonoBehaviour
 {
     Vector3 originalPos;
     Quaternion originalRot;
@@ -15,7 +15,7 @@ public class ResetInputManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetButton("Reset"))
         {
             transform.position = originalPos;
             transform.rotation = originalRot;

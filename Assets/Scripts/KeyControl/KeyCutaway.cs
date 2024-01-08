@@ -28,7 +28,7 @@ public class KeyCutaway : MonoBehaviour
             float distanceChange = speed * Time.deltaTime;
             Vector3 scale = other.transform.localScale;
 
-            // Enlarge window if "+" key pressed
+            // enlarge window if "+" key pressed
             if (Input.GetButton("Enlarge"))
             {
                 scale.z = scale.x += distanceChange;
@@ -37,7 +37,7 @@ public class KeyCutaway : MonoBehaviour
                     scale.z = scale.x -= distanceChange;
                 }
             }
-            // Shrink window if "-" key pressed
+            // shrink window if "-" key pressed
             else if (Input.GetButton("Shrink"))
             {
                 scale.z = scale.x -= distanceChange;
@@ -46,6 +46,7 @@ public class KeyCutaway : MonoBehaviour
                     scale.z = scale.x += distanceChange;
                 }
             }
+            // reset window to original size
             else if (Input.GetKey(KeyCode.R))
             {
                 scale.z = scale.x = originalSize;
