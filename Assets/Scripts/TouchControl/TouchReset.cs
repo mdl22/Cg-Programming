@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class TouchReset : MonoBehaviour
 {
-    Vector3 originalPos;
-    Quaternion originalRot;
+    Vector3 originalPosition;
+    Quaternion originalRotation;
 
     void Start()
     {
-        originalPos = transform.position;
-        originalRot = transform.rotation;
+        originalPosition = transform.position;
+        originalRotation = transform.rotation;
     }
 
     void Update()
     {
         if (Input.GetTouch(0).tapCount == 2)
         {
-            transform.position = originalPos;
-            transform.rotation = originalRot;
+            transform.position = originalPosition;
+            transform.rotation = originalRotation;
         }
     }
 }
