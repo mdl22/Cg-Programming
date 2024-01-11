@@ -29,6 +29,14 @@ public class KeyPlayerController : MonoBehaviour
         {
             transform.RotateAround(customPivot.position, Vector3.left, angle);
         }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                Debug.Log($"(U, V) = ({hit.textureCoord.x}, {hit.textureCoord.y})");
+            }
+        }
     }
 
     /*void OnGUI()
