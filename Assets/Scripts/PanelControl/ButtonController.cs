@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class ButtonController : MonoBehaviour
 {
+    [SerializeField] Button resetButton;
     Vector3 originalPos;
     Quaternion originalRot;
-
-    public Button resetButton;
 
     void Start()
     {
