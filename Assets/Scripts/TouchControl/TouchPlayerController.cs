@@ -42,6 +42,15 @@ public class TouchPlayerController : MonoBehaviour
                 // move back to position
                 transform.position -= customPivot.position;
             }
+
+            if (touch.tapCount == 1)
+            {
+                Ray ray = Camera.main.ScreenPointToRay(startPosition);
+                if (Physics.Raycast(ray, out RaycastHit hit))
+                {
+                    Debug.Log((hit.textureCoord.x, hit.textureCoord.y));
+                }
+            }
         }
     }
 }
