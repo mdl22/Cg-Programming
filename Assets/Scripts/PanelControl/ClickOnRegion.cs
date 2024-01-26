@@ -6,16 +6,23 @@ using TMPro;
 
 public class ClickOnRegion : MonoBehaviour
 {
+    [SerializeField] Texture2D mainTexture;
     [SerializeField] Button resetButton;
     [SerializeField] TextMeshProUGUI uText;
     [SerializeField] TextMeshProUGUI vText;
+    [SerializeField] TextMeshProUGUI rgbText;
     [SerializeField] TextMeshProUGUI uCoordinate;
     [SerializeField] TextMeshProUGUI vCoordinate;
+    [SerializeField] TextMeshProUGUI rgbValues;
+
+    Texture2D texture;
 
     void Start()
     {
         Button button = resetButton.GetComponent<Button>();
         button.onClick.AddListener(ClearText);
+
+        texture = GetComponent<Renderer>().material.mainTexture as Texture2D;
     }
 
     void Update()
@@ -27,6 +34,13 @@ public class ClickOnRegion : MonoBehaviour
             {
                 uCoordinate.text = hit.textureCoord.x.ToString("#0.000000");
                 vCoordinate.text = hit.textureCoord.y.ToString("#0.000000");
+
+                Color pixelColor =
+                    texture.GetPixelBilinear(hit.textureCoord.x, hit.textureCoord.y);
+
+                rgbValues.text = pixelColor.r.ToString("#0.000000") + "\n" +
+                    pixelColor.g.ToString("#0.000000") + "\n" +
+                    pixelColor.b.ToString("#0.000000");
             }
         }
     }
@@ -35,5 +49,6 @@ public class ClickOnRegion : MonoBehaviour
     {
         uCoordinate.text = "";
         vCoordinate.text = "";
+        rgbValues.text = "";
     }
 }

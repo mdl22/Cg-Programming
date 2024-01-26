@@ -18,11 +18,8 @@ public class PanelCutaway : MonoBehaviour
             GetComponent<Renderer>().sharedMaterial.SetMatrix("_InverseModelMatrix",
                 other.GetComponent<Renderer>().worldToLocalMatrix);
 
-            Vector3 scale = other.transform.localScale;
-
-            scale.z = scale.x = windowSlider.value;
-
-            other.transform.localScale = scale;
+            other.transform.localScale = new Vector3(
+                windowSlider.value, other.transform.localScale.y, windowSlider.value);
         }
     }
 }
