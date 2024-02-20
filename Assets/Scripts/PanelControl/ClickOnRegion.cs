@@ -6,18 +6,17 @@ using TMPro;
 
 public class ClickOnRegion : MonoBehaviour
 {
-    [SerializeField] Texture2D mainTexture;
     [SerializeField] Button resetButton;
     [SerializeField] TextMeshProUGUI uText;
     [SerializeField] TextMeshProUGUI vText;
     [SerializeField] TextMeshProUGUI rText;
     [SerializeField] TextMeshProUGUI gText;
     [SerializeField] TextMeshProUGUI bText;
-    [SerializeField] TextMeshProUGUI uCoordinate;
-    [SerializeField] TextMeshProUGUI vCoordinate;
-    [SerializeField] TextMeshProUGUI rValue;
-    [SerializeField] TextMeshProUGUI gValue;
-    [SerializeField] TextMeshProUGUI bValue;
+    [SerializeField] TextMeshProUGUI uChannel;
+    [SerializeField] TextMeshProUGUI vChannel;
+    [SerializeField] TextMeshProUGUI rChannel;
+    [SerializeField] TextMeshProUGUI gChannel;
+    [SerializeField] TextMeshProUGUI bChannel;
 
     Texture2D texture;
 
@@ -36,25 +35,25 @@ public class ClickOnRegion : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                uCoordinate.text = hit.textureCoord.x.ToString("#0.000000");
-                vCoordinate.text = hit.textureCoord.y.ToString("#0.000000");
+                uChannel.text = hit.textureCoord.x.ToString("#0.000000");
+                vChannel.text = hit.textureCoord.y.ToString("#0.000000");
 
                 Color pixelColor =
                     texture.GetPixelBilinear(hit.textureCoord.x, hit.textureCoord.y);
 
-                rValue.text = pixelColor.r.ToString("#0.000000");
-                gValue.text = pixelColor.g.ToString("#0.000000");
-                bValue.text = pixelColor.b.ToString("#0.000000");
+                rChannel.text = pixelColor.r.ToString("#0.000000");
+                gChannel.text = pixelColor.g.ToString("#0.000000");
+                bChannel.text = pixelColor.b.ToString("#0.000000");
             }
         }
     }
 
     void ClearText()
     {
-        uCoordinate.text = "";
-        vCoordinate.text = "";
-        rValue.text = "";
-        gValue.text = "";
-        bValue.text = "";
+        uChannel.text = "";
+        vChannel.text = "";
+        rChannel.text = "";
+        gChannel.text = "";
+        bChannel.text = "";
     }
 }

@@ -1205,7 +1205,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1103683379}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2059,7 +2059,7 @@ GameObject:
   - component: {fileID: 818902222}
   - component: {fileID: 818902221}
   m_Layer: 5
-  m_Name: V Coordinate
+  m_Name: V Channel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2115,7 +2115,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2885,7 +2885,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3128,10 +3128,10 @@ RectTransform:
   - {fileID: 1545553010}
   - {fileID: 818902220}
   - {fileID: 937140088}
-  - {fileID: 1760733313}
   - {fileID: 1711691670}
-  - {fileID: 1901035761}
   - {fileID: 309336038}
+  - {fileID: 1760733313}
+  - {fileID: 1901035761}
   - {fileID: 1346535550}
   - {fileID: 142673906}
   m_Father: {fileID: 254490714}
@@ -3564,7 +3564,7 @@ GameObject:
   - component: {fileID: 1346535552}
   - component: {fileID: 1346535551}
   m_Layer: 5
-  m_Name: B Value
+  m_Name: B Channel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3792,7 +3792,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4179,7 +4179,7 @@ GameObject:
   - component: {fileID: 1545553012}
   - component: {fileID: 1545553011}
   m_Layer: 5
-  m_Name: U Coordinate
+  m_Name: U Channel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4235,7 +4235,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4729,7 +4729,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1103683379}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4882,7 +4882,7 @@ GameObject:
   - component: {fileID: 1760733315}
   - component: {fileID: 1760733314}
   m_Layer: 5
-  m_Name: R Value
+  m_Name: R Channel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4901,7 +4901,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1103683379}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5205,7 +5205,7 @@ GameObject:
   - component: {fileID: 1901035763}
   - component: {fileID: 1901035762}
   m_Layer: 5
-  m_Name: G Value
+  m_Name: G Channel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5224,7 +5224,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1103683379}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5769,11 +5769,11 @@ MonoBehaviour:
   rText: {fileID: 937140089}
   gText: {fileID: 1711691671}
   bText: {fileID: 309336039}
-  uCoordinate: {fileID: 1545553011}
-  vCoordinate: {fileID: 818902221}
-  rValue: {fileID: 1760733314}
-  gValue: {fileID: 1901035762}
-  bValue: {fileID: 1346535551}
+  uChannel: {fileID: 1545553011}
+  vChannel: {fileID: 818902221}
+  rChannel: {fileID: 1760733314}
+  gChannel: {fileID: 1901035762}
+  bChannel: {fileID: 1346535551}
 --- !u!64 &2087895006
 MeshCollider:
   m_ObjectHideFlags: 0
