@@ -10,10 +10,14 @@ public class ClickOnRegion : MonoBehaviour
     [SerializeField] Button resetButton;
     [SerializeField] TextMeshProUGUI uText;
     [SerializeField] TextMeshProUGUI vText;
-    [SerializeField] TextMeshProUGUI rgbText;
+    [SerializeField] TextMeshProUGUI rText;
+    [SerializeField] TextMeshProUGUI gText;
+    [SerializeField] TextMeshProUGUI bText;
     [SerializeField] TextMeshProUGUI uCoordinate;
     [SerializeField] TextMeshProUGUI vCoordinate;
-    [SerializeField] TextMeshProUGUI rgbValues;
+    [SerializeField] TextMeshProUGUI rValue;
+    [SerializeField] TextMeshProUGUI gValue;
+    [SerializeField] TextMeshProUGUI bValue;
 
     Texture2D texture;
 
@@ -38,9 +42,9 @@ public class ClickOnRegion : MonoBehaviour
                 Color pixelColor =
                     texture.GetPixelBilinear(hit.textureCoord.x, hit.textureCoord.y);
 
-                rgbValues.text = pixelColor.r.ToString("#0.000000") + "\n" +
-                    pixelColor.g.ToString("#0.000000") + "\n" +
-                    pixelColor.b.ToString("#0.000000");
+                rValue.text = pixelColor.r.ToString("#0.000000");
+                gValue.text = pixelColor.g.ToString("#0.000000");
+                bValue.text = pixelColor.b.ToString("#0.000000");
             }
         }
     }
@@ -49,6 +53,8 @@ public class ClickOnRegion : MonoBehaviour
     {
         uCoordinate.text = "";
         vCoordinate.text = "";
-        rgbValues.text = "";
+        rValue.text = "";
+        gValue.text = "";
+        bValue.text = "";
     }
 }

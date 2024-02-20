@@ -7,9 +7,14 @@ public class KeyPlayerController : MonoBehaviour
     [SerializeField] float speed = 40;
     [SerializeField] Transform customPivot;
 
+    Vector2 MousePos;
+
     void Update()
     {
         float angle = speed * Time.deltaTime;
+
+        Vector2 MousePos = Input.mousePosition;
+        Debug.Log(MousePos);
 
         // rotate around y-axis based on key input
         if (Input.GetButton("Rotate Left"))
