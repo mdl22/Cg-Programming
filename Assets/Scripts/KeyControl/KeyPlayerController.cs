@@ -7,14 +7,9 @@ public class KeyPlayerController : MonoBehaviour
     [SerializeField] float speed = 40;
     [SerializeField] Transform customPivot;
 
-    Vector2 MousePos;
-
     void Update()
     {
         float angle = speed * Time.deltaTime;
-
-        Vector2 MousePos = Input.mousePosition;
-        Debug.Log(MousePos);
 
         // rotate around y-axis based on key input
         if (Input.GetButton("Rotate Left"))
@@ -33,14 +28,6 @@ public class KeyPlayerController : MonoBehaviour
         else if (Input.GetButton("Rotate Down"))
         {
             transform.RotateAround(customPivot.position, Vector3.left, angle);
-        }
-        else if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                Debug.Log($"(U, V) = ({hit.textureCoord.x}, {hit.textureCoord.y})");
-            }
         }
     }
 

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PanelCameraController : MonoBehaviour
 {
     [SerializeField] Slider zoomSlider;
+    [SerializeField] Slider panSlider;
 
     Vector3 startPosition;
 
@@ -22,5 +23,9 @@ public class PanelCameraController : MonoBehaviour
         // zoom in and out based on a slider
         transform.position = new Vector3(
             transform.position.x, transform.position.y, zoomSlider.value);
+
+        // Pan along x-axis based on a slider
+        transform.position = new Vector3(
+            -panSlider.value, transform.position.y, transform.position.z);
     }
 }

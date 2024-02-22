@@ -370,7 +370,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spin
+  m_text: Pan Camera
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -942,7 +942,7 @@ GameObject:
   - component: {fileID: 220781443}
   - component: {fileID: 220781444}
   m_Layer: 5
-  m_Name: Spin Slider
+  m_Name: Pan Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1016,8 +1016,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 1672952484}
   m_HandleRect: {fileID: 1188404770}
   m_Direction: 0
-  m_MinValue: -180
-  m_MaxValue: 180
+  m_MinValue: -20
+  m_MaxValue: 20
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -2497,11 +2497,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   other: {fileID: 2087894991}
-  mainCamera: {fileID: 1823079374}
   customPivot: {fileID: 935288478}
   horizontalSlider: {fileID: 723628655}
   verticalSlider: {fileID: 80447653}
-  spinSlider: {fileID: 220781444}
+  panSlider: {fileID: 220781444}
   zoomSlider: {fileID: 806364961}
   windowSlider: {fileID: 1533727053}
   resetButton: {fileID: 142673907}
@@ -5193,6 +5192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomSlider: {fileID: 806364961}
+  panSlider: {fileID: 220781444}
 --- !u!1 &1901035760
 GameObject:
   m_ObjectHideFlags: 0
@@ -5762,7 +5762,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28dd08d66052986a9f4218c5b050bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainTexture: {fileID: 0}
   resetButton: {fileID: 142673907}
   uText: {fileID: 944452081}
   vText: {fileID: 1430493074}

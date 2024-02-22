@@ -6,11 +6,10 @@ using UnityEngine.UI;
 public class RotateBySlider : MonoBehaviour
 {
     [SerializeField] GameObject other;
-    [SerializeField] Camera mainCamera;
     [SerializeField] Transform customPivot;
     [SerializeField] Slider horizontalSlider;
     [SerializeField] Slider verticalSlider;
-    [SerializeField] Slider spinSlider;
+    [SerializeField] Slider panSlider;
     [SerializeField] Slider zoomSlider;
     [SerializeField] Slider windowSlider;
 
@@ -34,14 +33,9 @@ public class RotateBySlider : MonoBehaviour
         other.transform.position -= customPivot.position;
     }
 
-    public void RotateCamera()
-    {
-        mainCamera.transform.localEulerAngles = new Vector3(0, spinSlider.value, 0);
-    }
-
     void ResetSliders()
     {
-        spinSlider.value = verticalSlider.value = horizontalSlider.value = 0;
+        panSlider.value = verticalSlider.value = horizontalSlider.value = 0;
         zoomSlider.value = zoomSlider.minValue;
         windowSlider.value = windowSlider.minValue;
     }

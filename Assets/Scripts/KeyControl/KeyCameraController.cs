@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class KeyCameraController : MonoBehaviour
 {
     [SerializeField] float speed = 10;
-    [SerializeField] float turnSpeed = 40;
+    [SerializeField] float panLimit = 10;
 
     Vector3 startPosition;
 
@@ -18,11 +18,10 @@ public class KeyCameraController : MonoBehaviour
     void Update()
     {
         float distance = speed * Time.deltaTime;
-        float angle = turnSpeed * Time.deltaTime;
         float horizontalKeyValue = -Input.GetAxis("Horizontal");
         float verticalKeyValue = Input.GetAxis("Vertical");
 
-        // Zoom in and out based on arrow key input
+        // Zoom in and out based on up/down arrow key input
         transform.position += Vector3.forward * distance * verticalKeyValue;
 
         if (transform.position.z > 0)
@@ -34,7 +33,13 @@ public class KeyCameraController : MonoBehaviour
             transform.position = startPosition;
         }
 
-        // Rotate around y-axis based on arrow key input
-        transform.Rotate(Vector3.up, -angle * horizontalKeyValue);
+        // Pan along x-axis based on left/right arrow key input
+        transform.position += Vector3.right * distance * horizontalKeyValue;
+
+        if (Mathf.Abs(transform.position.x) > panLimit)
+        {
+            transform.position = new Vector3(Mathf.Sign(transform.position.x) * panLimit,
+                transform.position.y, transform.position.z);
+        }
     }
 }

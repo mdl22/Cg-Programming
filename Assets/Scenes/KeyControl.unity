@@ -466,7 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  turnSpeed: 50
+  panLimit: 20
 --- !u!114 &1823079377
 MonoBehaviour:
   m_ObjectHideFlags: 0
