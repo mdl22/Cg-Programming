@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +6,7 @@ public class TouchPlayerController : MonoBehaviour
 {
     [SerializeField] Transform customPivot;
     Vector2 startPosition;
-    Vector2 deltaPosition;
+    Vector2 changeInPosition;
 
     void Update()
     {
@@ -21,22 +20,22 @@ public class TouchPlayerController : MonoBehaviour
             }
             else if (touch.phase == TouchPhase.Moved)
             {
-                deltaPosition = startPosition - touch.position;
+                changeInPosition = startPosition - touch.position;
 
                 // move to world origin using pivot offset
                 transform.position += customPivot.position;
 
-                if (Math.Abs(deltaPosition.x) > Math.Abs(deltaPosition.y))
+                if (Mathf.Abs(changeInPosition.x) > Mathf.Abs(changeInPosition.y))
                 {
                     // rotate horizontally (parent object rotation exchanges y- and z-axes)
                     transform.localEulerAngles = new Vector3(
-                        transform.localEulerAngles.x, 0, deltaPosition.x);
+                        transform.localEulerAngles.x, 0, changeInPosition.x);
                 }
                 else
                 {
                     // rotate vertically (parent object rotation exchanges y- and z-axes)
                     transform.localEulerAngles = new Vector3(
-                        deltaPosition.y, 0, transform.localEulerAngles.y);
+                        changeInPosition.y, 0, transform.localEulerAngles.y);
                 }
 
                 // move back to position

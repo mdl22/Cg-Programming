@@ -5,13 +5,15 @@ using UnityEngine;
 public class TouchCameraController : MonoBehaviour
 {
     [SerializeField] float scaling = 0.1f;
-    static float currentSeparation = 0;
+    float currentSeparation = 0;
     float separation;
-    Vector3 startPosition;
+    Vector3 startCameraPosition;
+    Vector2 startTouchPosition;
+    Vector2 changeInPosition;
 
     void Start()
     {
-        startPosition = transform.position;
+        startCameraPosition = transform.position;
     }
 
     void Update()
@@ -31,13 +33,19 @@ public class TouchCameraController : MonoBehaviour
                     transform.position =
                         new Vector3(transform.position.x, transform.position.y, 0);
                 }
-                else if (transform.position.z < startPosition.z)
+                else if (transform.position.z < startCameraPosition.z)
                 {
-                    transform.position = startPosition;
+                    transform.position = startCameraPosition;
                 }
 
                 currentSeparation = separation;
             }
+        }
+        else if (Input.touchCount == 3)
+        {
+            // Pan along x-axis based on a slider
+            //transform.position = new Vector3(
+            //    -panSlider.value, transform.position.y, transform.position.z);
         }
     }
 }
