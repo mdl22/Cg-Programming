@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class PanelCameraController : MonoBehaviour
 {
-    [SerializeField] Slider zoomSlider;
     [SerializeField] Slider panAcrossSlider;
     [SerializeField] Slider panUpDownSlider;
+    [SerializeField] Slider zoomSlider;
 
     Vector3 startPosition;
 
