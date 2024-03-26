@@ -7,10 +7,13 @@ using TMPro;
 
 public class ClickOnRegion : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI clickText;
-    [SerializeField] TextMeshProUGUI areaName;
-    [SerializeField] TextMeshProUGUI areaDescription;
+    [SerializeField] Image areasPanel;
+    [SerializeField] TextMeshProUGUI panelTitleText;
+    [SerializeField] TextMeshProUGUI panelListText;
+    [SerializeField] TextMeshProUGUI areaTitleText;
+    [SerializeField] TextMeshProUGUI areaDescriptionText;
     [SerializeField] Button resetButton;
+    [SerializeField] Button areasButton;
 
     Texture2D texture;
     [SerializeField] Texture2D mask;
@@ -23,12 +26,15 @@ public class ClickOnRegion : MonoBehaviour
     {
         texture = GetComponent<Renderer>().material.mainTexture as Texture2D;
 
+        panelListText.text = "";
         foreach (string line in maskTable.text.Split("\n"))
         {
             string[] fields = line.Split("\t");
             if (line.Length > 0 && Char.IsDigit(fields[0][0]))
             {
                 areas.Add(1 << Convert.ToInt32(fields[0]), new string[] {fields[2], fields[3]});
+                panelListText.text = string.Concat(
+                    string.Concat(panelListText.text, fields[2]), "\n\n");
             }
         }
         /*foreach (KeyValuePair<int, string[]> element in areas)
@@ -40,7 +46,7 @@ public class ClickOnRegion : MonoBehaviour
 //Renderer.material.SetTexture("_MainTex", m_MainTexture);
 
         Button button = resetButton.GetComponent<Button>();
-        button.onClick.AddListener(ClearText);
+        button.onClick.AddListener(ResetPanel);
     }
 
     void Update()
@@ -52,29 +58,47 @@ public class ClickOnRegion : MonoBehaviour
             {
                 Color32 pixelColor =
                     mask.GetPixelBilinear(hit.textureCoord.x, hit.textureCoord.y);
-
-                if (areas.ContainsKey(pixelColor.r))
-                {
-                    areaName.text = areas[pixelColor.r][0];
-                    areaDescription.text = areas[pixelColor.r][1];
                     /*rChannel.text = pixelColor.r.ToString();
                     gChannel.text = pixelColor.g.ToString();
                     bChannel.text = pixelColor.b.ToString();
                     Debug.Log(pixelColor.r);
                     Debug.Log(areas[pixelColor.r][0]);
                     Debug.Log(areas[pixelColor.r][1]);*/
+
+                int areasKey = 1 << pixelColor.r;
+                if (areas.ContainsKey(areasKey))
+                {
+                    panelTitleText.gameObject.SetActive(false);
+                    panelListText.gameObject.SetActive(false);
+
+                    areaTitleText.gameObject.SetActive(true);
+                    areaDescriptionText.gameObject.SetActive(true);
+
+                    areaTitleText.text = areas[areasKey][0];
+                    areaDescriptionText.text = areas[areasKey][1];
                 }
                 else
                 {
-                    areaDescription.text = areaName.text = "";
+                    ResetPanelText();
                 }
             }
         }
     }
 
-    void ClearText()
+    void ResetPanelText()
     {
-        areaName.text = "";
-        areaDescription.text = "";
+        panelTitleText.gameObject.SetActive(true);
+        panelListText.gameObject.SetActive(true);
+
+        areaTitleText.gameObject.SetActive(false);
+        areaDescriptionText.gameObject.SetActive(false);
+    }
+
+    void ResetPanel()
+    {
+        areasPanel.gameObject.SetActive(false); 
+        areasButton.gameObject.SetActive(true); 
+
+        ResetPanelText();
     }
 }
