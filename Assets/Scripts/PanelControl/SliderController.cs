@@ -5,14 +5,12 @@ using UnityEngine.UI;
 
 public class SliderController : MonoBehaviour
 {
-    //[SerializeField] GameObject other;
     [SerializeField] Slider horizontalSlider;
     [SerializeField] Slider verticalSlider;
     [SerializeField] Slider panAcrossSlider;
     [SerializeField] Slider panUpDownSlider;
     [SerializeField] Slider zoomSlider;
-
-    public Button resetButton;
+    [SerializeField] Button resetButton;
 
     void Start()
     {
