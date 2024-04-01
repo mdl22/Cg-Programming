@@ -1926,7 +1926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28dd08d66052986a9f4218c5b050bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  other: {fileID: 1157170472}
+  other: {fileID: 910811925}
   areasPanel: {fileID: 576661525}
   panelTitleText: {fileID: 1634854026}
   panelListText: {fileID: 1761515536}
@@ -2187,7 +2187,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &526869928
 GameObject:
@@ -2283,7 +2283,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &526869931
 MonoBehaviour:
@@ -4097,58 +4097,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b8164e13ae9cc46ebc9201d8aed7deb, type: 3}
---- !u!1 &1157170472
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1157170474}
-  - component: {fileID: 1157170475}
-  m_Layer: 0
-  m_Name: Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1157170474
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157170472}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 363.40274, y: 203.22955, z: 2.1109006}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1157170475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157170472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 247f2e96d55a36f8795c7cbaf17ba04b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  areasPanel: {fileID: 576661525}
-  panelTitleText: {fileID: 1634854026}
-  panelListText: {fileID: 1761515536}
-  areaTitleText: {fileID: 1277480941}
-  areaDescriptionText: {fileID: 214798530}
-  resetButton: {fileID: 142673907}
-  areasButton: {fileID: 1615293641}
-  backButton: {fileID: 461948705}
 --- !u!4 &1174665810 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d6d46ed81d8f08e69ae32320aba41f36, type: 3}

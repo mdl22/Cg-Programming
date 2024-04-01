@@ -10,13 +10,9 @@ public class ClickOnRegion : MonoBehaviour
     [SerializeField] GameObject other;
 
     [SerializeField] Image areasPanel;
-    [SerializeField] TextMeshProUGUI panelTitleText;
     [SerializeField] TextMeshProUGUI panelListText;
     [SerializeField] TextMeshProUGUI areaTitleText;
     [SerializeField] TextMeshProUGUI areaDescriptionText;
-    //[SerializeField] Button resetButton;
-    [SerializeField] Button areasButton;
-    [SerializeField] Button backButton;
 
     Texture2D texture;
     [SerializeField] Texture2D mask;
@@ -40,17 +36,7 @@ public class ClickOnRegion : MonoBehaviour
                     string.Concat(panelListText.text, fields[2]), "\n\n");
             }
         }
-        /*foreach (KeyValuePair<int, string[]> element in areas)
-        {
-            Debug.Log(element.Key);
-            Debug.Log(element.Value[0]);
-            Debug.Log(element.Value[1]);
-        }*/
 //Renderer.material.SetTexture("_MainTex", m_MainTexture);
-
-// ADD OTHER BUTTONS HERE?
-        //Button button = resetButton.GetComponent<Button>();
-        //button.onClick.AddListener(ResetPanel);
     }
 
     void Update()
@@ -72,45 +58,16 @@ public class ClickOnRegion : MonoBehaviour
                 int areasKey = 1 << pixelColor.r;
                 if (areas.ContainsKey(areasKey))
                 {
-                    //panelTitleText.gameObject.SetActive(false);
-                    //panelListText.gameObject.SetActive(false);
-
-                    //areaTitleText.gameObject.SetActive(true);
-                    //areaDescriptionText.gameObject.SetActive(true);
-
                     areaTitleText.text = areas[areasKey][0];
                     areaDescriptionText.text = areas[areasKey][1];
 
-                    ResetPanelText(false);
-                    //backButton.gameObject.SetActive(true); 
+                    other.GetComponent<Reset>().ResetPanelText(false);
                 }
                 else
                 {
-                    ResetPanelText();
-                    //FindObjectOfType<Manager>().Reset.ResetPanelText();
-                    //other.GetComponent<Reset>().ResetPanelText();
+                    other.GetComponent<Reset>().ResetPanelText();
                 }
             }
         }
-    }
-
-    void ResetPanelText(bool boolean = true)
-    {
-        panelTitleText.gameObject.SetActive(boolean);
-        panelListText.gameObject.SetActive(boolean);
-
-        areaTitleText.gameObject.SetActive(!boolean);
-        areaDescriptionText.gameObject.SetActive(!boolean);
-
-        backButton.gameObject.SetActive(!boolean); 
-    }
-
-    public void ResetPanel(bool boolean = true)
-    {
-        areasPanel.gameObject.SetActive(!boolean); 
-        areasButton.gameObject.SetActive(boolean); 
-
-        ResetPanelText();
-        //other.GetComponent<Reset>().ResetPanelText();
     }
 }

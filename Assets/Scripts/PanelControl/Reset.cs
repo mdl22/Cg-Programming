@@ -15,15 +15,15 @@ public class Reset : MonoBehaviour
     [SerializeField] Button areasButton;
     [SerializeField] Button backButton;
 
-    public void ResetPanelText()
+    public void ResetPanelText(bool boolean = true)
     {
-        panelTitleText.gameObject.SetActive(true);
-        panelListText.gameObject.SetActive(true);
+        panelTitleText.gameObject.SetActive(boolean);
+        panelListText.gameObject.SetActive(boolean);
 
-        areaTitleText.gameObject.SetActive(false);
-        areaDescriptionText.gameObject.SetActive(false);
+        areaTitleText.gameObject.SetActive(!boolean);
+        areaDescriptionText.gameObject.SetActive(!boolean);
 
-        backButton.gameObject.SetActive(false); 
+        backButton.gameObject.SetActive(!boolean); 
     }
 
     public void ResetPanel()
