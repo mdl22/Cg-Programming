@@ -942,7 +942,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 910811930}
         m_TargetAssemblyTypeName: Reset, Assembly-CSharp
-        m_MethodName: ResetPanel
+        m_MethodName: ClosePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1830,12 +1830,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   other: {fileID: 0}
   areasPanel: {fileID: 0}
-  panelTitleText: {fileID: 0}
   panelListText: {fileID: 0}
   areaTitleText: {fileID: 0}
   areaDescriptionText: {fileID: 0}
-  areasButton: {fileID: 0}
-  backButton: {fileID: 0}
+  material: {fileID: 0}
   mask: {fileID: 0}
   emissionMaps: []
   maskTable: {fileID: 0}
@@ -1872,12 +1870,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   other: {fileID: 0}
   areasPanel: {fileID: 0}
-  panelTitleText: {fileID: 0}
   panelListText: {fileID: 0}
   areaTitleText: {fileID: 0}
   areaDescriptionText: {fileID: 0}
-  areasButton: {fileID: 0}
-  backButton: {fileID: 0}
+  material: {fileID: 0}
   mask: {fileID: 0}
   emissionMaps: []
   maskTable: {fileID: 0}
@@ -1928,12 +1924,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   other: {fileID: 910811925}
   areasPanel: {fileID: 576661525}
-  panelTitleText: {fileID: 1634854026}
   panelListText: {fileID: 1761515536}
   areaTitleText: {fileID: 1277480941}
   areaDescriptionText: {fileID: 214798530}
-  areasButton: {fileID: 1615293641}
-  backButton: {fileID: 461948705}
+  material: {fileID: 0}
   mask: {fileID: 2800000, guid: 9ec79ffaf0cdcd2e08943d7d298de977, type: 3}
   emissionMaps:
   - {fileID: 2800000, guid: 8dba6efe1776dfb1ba4be440dd2b3b24, type: 3}
@@ -2023,9 +2017,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1634854024}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 910811930}
+        m_TargetAssemblyTypeName: Reset, Assembly-CSharp
+        m_MethodName: ResetPanel
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2034,54 +2028,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1761515534}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1277480939}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 214798528}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 461948703}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &461948706
 MonoBehaviour:
@@ -2275,7 +2221,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 910811930}
         m_TargetAssemblyTypeName: Reset, Assembly-CSharp
-        m_MethodName: ResetPanel
+        m_MethodName: ClosePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2342,12 +2288,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   other: {fileID: 0}
   areasPanel: {fileID: 0}
-  panelTitleText: {fileID: 0}
   panelListText: {fileID: 0}
   areaTitleText: {fileID: 0}
   areaDescriptionText: {fileID: 0}
-  areasButton: {fileID: 0}
-  backButton: {fileID: 0}
+  material: {fileID: 0}
   mask: {fileID: 0}
   emissionMaps: []
   maskTable: {fileID: 0}
@@ -3416,7 +3360,6 @@ MonoBehaviour:
   panelListText: {fileID: 1761515536}
   areaTitleText: {fileID: 1277480941}
   areaDescriptionText: {fileID: 214798530}
-  resetButton: {fileID: 142673907}
   areasButton: {fileID: 1615293641}
   backButton: {fileID: 461948705}
 --- !u!1 &939037502
@@ -3527,34 +3470,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 910811930}
+        m_TargetAssemblyTypeName: Reset, Assembly-CSharp
+        m_MethodName: ClosePanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1615293639}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 576661523}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 910811930}
-        m_TargetAssemblyTypeName: Reset, Assembly-CSharp
-        m_MethodName: ResetPanelText
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3834,7 +3765,7 @@ GameObject:
   - component: {fileID: 1103683381}
   - component: {fileID: 1103683380}
   m_Layer: 5
-  m_Name: Controls Menu
+  m_Name: Controls Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4021,7 +3952,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: 1620e565b34f130c783f7d9e63d9aab4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fd26ad3f9ba80b1ecaeb46f63158eb26, type: 2}
+      objectReference: {fileID: 2100000, guid: d6831658a235cc202986b882bc6f7d30, type: 2}
     - target: {fileID: 919132149155446097, guid: 1620e565b34f130c783f7d9e63d9aab4, type: 3}
       propertyPath: m_Name
       value: WholeBrain
@@ -4029,6 +3960,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1620e565b34f130c783f7d9e63d9aab4, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 1620e565b34f130c783f7d9e63d9aab4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1620e565b34f130c783f7d9e63d9aab4, type: 3}
@@ -4742,12 +4677,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   other: {fileID: 0}
   areasPanel: {fileID: 0}
-  panelTitleText: {fileID: 0}
   panelListText: {fileID: 0}
   areaTitleText: {fileID: 0}
   areaDescriptionText: {fileID: 0}
-  areasButton: {fileID: 0}
-  backButton: {fileID: 0}
+  material: {fileID: 0}
   mask: {fileID: 0}
   emissionMaps: []
   maskTable: {fileID: 0}
@@ -4919,12 +4852,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   other: {fileID: 0}
   areasPanel: {fileID: 0}
-  panelTitleText: {fileID: 0}
   panelListText: {fileID: 0}
   areaTitleText: {fileID: 0}
   areaDescriptionText: {fileID: 0}
-  areasButton: {fileID: 0}
-  backButton: {fileID: 0}
+  material: {fileID: 0}
   mask: {fileID: 0}
   emissionMaps: []
   maskTable: {fileID: 0}
@@ -5101,12 +5032,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   other: {fileID: 0}
   areasPanel: {fileID: 0}
-  panelTitleText: {fileID: 0}
   panelListText: {fileID: 0}
   areaTitleText: {fileID: 0}
   areaDescriptionText: {fileID: 0}
-  areasButton: {fileID: 0}
-  backButton: {fileID: 0}
+  material: {fileID: 0}
   mask: {fileID: 0}
   emissionMaps: []
   maskTable: {fileID: 0}
@@ -5343,12 +5272,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   other: {fileID: 0}
   areasPanel: {fileID: 0}
-  panelTitleText: {fileID: 0}
   panelListText: {fileID: 0}
   areaTitleText: {fileID: 0}
   areaDescriptionText: {fileID: 0}
-  areasButton: {fileID: 0}
-  backButton: {fileID: 0}
+  material: {fileID: 0}
   mask: {fileID: 0}
   emissionMaps: []
   maskTable: {fileID: 0}
@@ -6336,12 +6263,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   other: {fileID: 0}
   areasPanel: {fileID: 0}
-  panelTitleText: {fileID: 0}
   panelListText: {fileID: 0}
   areaTitleText: {fileID: 0}
   areaDescriptionText: {fileID: 0}
-  areasButton: {fileID: 0}
-  backButton: {fileID: 0}
+  material: {fileID: 0}
   mask: {fileID: 0}
   emissionMaps: []
   maskTable: {fileID: 0}
