@@ -943,14 +943,14 @@ MonoBehaviour:
       - m_Target: {fileID: 910811930}
         m_TargetAssemblyTypeName: Reset, Assembly-CSharp
         m_MethodName: ClosePanel
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &142673908
 MonoBehaviour:
@@ -1930,8 +1930,8 @@ MonoBehaviour:
   material: {fileID: 0}
   mask: {fileID: 2800000, guid: 9ec79ffaf0cdcd2e08943d7d298de977, type: 3}
   emissionMaps:
-  - {fileID: 2800000, guid: 8dba6efe1776dfb1ba4be440dd2b3b24, type: 3}
   - {fileID: 2800000, guid: cbcf4e31b666cd71994b80a520da3dbd, type: 3}
+  - {fileID: 2800000, guid: 8dba6efe1776dfb1ba4be440dd2b3b24, type: 3}
   maskTable: {fileID: 4900000, guid: dc7be5d984a275b8b8e71c6ee8adb8b5, type: 3}
 --- !u!1 &461948703
 GameObject:
@@ -2222,7 +2222,7 @@ MonoBehaviour:
       - m_Target: {fileID: 910811930}
         m_TargetAssemblyTypeName: Reset, Assembly-CSharp
         m_MethodName: ClosePanel
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3473,18 +3473,6 @@ MonoBehaviour:
       - m_Target: {fileID: 910811930}
         m_TargetAssemblyTypeName: Reset, Assembly-CSharp
         m_MethodName: ClosePanel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1615293639}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -16,9 +16,9 @@ public class Reset : MonoBehaviour
 
     public void ResetPanel(bool reset = true)
     {
-        // get material from ClickOnRegion script attached child (default gameobject)
-        // of first and only active child of GameObject
-        Material material = GetComponentInChildren<ClickOnRegion>().material;
+        // get material from ClickOnRegion script attached to the child ("default" gameobject)
+        // of the first, and only, active child of brain GameObject
+        Material material = GetComponentInChildren<ClickOnArea>().material;
 
         if (reset)
         {
@@ -38,10 +38,10 @@ public class Reset : MonoBehaviour
         backButton.gameObject.SetActive(!reset); 
     }
 
-    public void ClosePanel()
+    public void ClosePanel(bool button)
     {
         areasPanel.gameObject.SetActive(false); 
-        areasButton.gameObject.SetActive(true); 
+        areasButton.gameObject.SetActive(button); 
 
         ResetPanel();
     }
