@@ -61,7 +61,6 @@ public class ClickOnArea : MonoBehaviour
                     Debug.Log(areas[pixelColor.r][0]);
                     Debug.Log(areas[pixelColor.r][1]);*/
 
-                //int areasKey = 1 << pixelColor.r;
                 string areasKey = pixelColor.r.ToString();
                 if (areas.ContainsKey(areasKey))
                 {
