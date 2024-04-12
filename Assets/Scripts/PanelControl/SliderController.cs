@@ -5,17 +5,18 @@ using UnityEngine.UI;
 
 public class SliderController : MonoBehaviour
 {
+    [SerializeField] Button exitButton;
+    [SerializeField] Button resetButton;
     [SerializeField] Slider horizontalSlider;
     [SerializeField] Slider verticalSlider;
     [SerializeField] Slider panAcrossSlider;
     [SerializeField] Slider panUpDownSlider;
     [SerializeField] Slider zoomSlider;
-    [SerializeField] Button resetButton;
 
     void Start()
     {
-        Button button = resetButton.GetComponent<Button>();
-        button.onClick.AddListener(ResetSliders);
+        exitButton.GetComponent<Button>().onClick.AddListener(ResetSliders);
+        resetButton.GetComponent<Button>().onClick.AddListener(ResetSliders);
     }
 
     public void RotateObject()

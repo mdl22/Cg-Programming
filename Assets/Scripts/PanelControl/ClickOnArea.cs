@@ -15,7 +15,6 @@ public class ClickOnArea : MonoBehaviour
     [SerializeField] TextMeshProUGUI areaDescriptionText;
 
     [HideInInspector] public Material material;
-    //Texture2D texture;
     [SerializeField] Texture2D mask;
     [SerializeField] Texture2D[] emissionMaps;
     [SerializeField] TextAsset maskTable;
@@ -25,10 +24,18 @@ public class ClickOnArea : MonoBehaviour
 
     void Start()
     {
+        SetUpEmissionMaps();
+    }
+
+    public void SetUpEmissionMaps()
+    {
         material = GetComponent<Renderer>().material;
         material.EnableKeyword("_EMISSION");
 
         Texture2D texture = material.mainTexture as Texture2D;
+
+        areas.Clear();
+        maps.Clear();
 
         panelListText.text = "";
         foreach (string line in maskTable.text.Split("\n"))
@@ -54,27 +61,21 @@ public class ClickOnArea : MonoBehaviour
             {
                 Color32 pixelColor =
                     mask.GetPixelBilinear(hit.textureCoord.x, hit.textureCoord.y);
-                    /*rChannel.text = pixelColor.r.ToString();
-                    gChannel.text = pixelColor.g.ToString();
-                    bChannel.text = pixelColor.b.ToString();
-                    Debug.Log(pixelColor.r);
-                    Debug.Log(areas[pixelColor.r][0]);
-                    Debug.Log(areas[pixelColor.r][1]);*/
 
-                string areasKey = pixelColor.r.ToString();
+                string areasKey = pixelColor.g.ToString();
+                Debug.Log((pixelColor.r, pixelColor.g, pixelColor.b));
                 if (areas.ContainsKey(areasKey))
                 {
-Debug.Log((pixelColor.r, pixelColor.r.ToString()));
                     material.SetTexture("_EmissionMap", maps[areasKey]);
 
                     areaTitleText.text = areas[areasKey][0];
                     areaDescriptionText.text = areas[areasKey][1];
 
-                    other.GetComponent<Reset>().ResetPanel(false);
+                    other.GetComponent<ModifyScene>().ResetPanel(false);
                 }
                 else
                 {
-                    other.GetComponent<Reset>().ResetPanel();
+                    other.GetComponent<ModifyScene>().ResetPanel();
                 }
             }
         }
