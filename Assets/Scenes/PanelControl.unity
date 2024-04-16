@@ -814,7 +814,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 910811930}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ModifyScene, Assembly-CSharp
         m_MethodName: ClosePanel
         m_Mode: 6
@@ -1098,7 +1098,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HC section
+  m_text: Hipp section
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1125,8 +1125,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1353,9 +1353,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 910811930}
+      - m_Target: {fileID: 910811929}
         m_TargetAssemblyTypeName: ModifyScene, Assembly-CSharp
-        m_MethodName: ResetPanel
+        m_MethodName: ClosePanels
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2229,27 +2229,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 52a9a37d8a53d5391bdf69204924ead1, type: 3}
   m_PrefabInstance: {fileID: 765869787}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &394009272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394009268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f28dd08d66052986a9f4218c5b050bdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  other: {fileID: 910811925}
-  areasPanel: {fileID: 576661525}
-  panelListText: {fileID: 1761515536}
-  areaTitleText: {fileID: 1277480941}
-  areaDescriptionText: {fileID: 214798530}
-  material: {fileID: 0}
-  mask: {fileID: 0}
-  emissionMaps: []
-  maskTable: {fileID: 0}
 --- !u!64 &394009276
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2281,7 +2260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28dd08d66052986a9f4218c5b050bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  other: {fileID: 910811925}
   areasPanel: {fileID: 576661525}
   panelListText: {fileID: 1761515536}
   areaTitleText: {fileID: 1277480941}
@@ -2335,12 +2313,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28dd08d66052986a9f4218c5b050bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  other: {fileID: 910811925}
   areasPanel: {fileID: 576661525}
   panelListText: {fileID: 1761515536}
   areaTitleText: {fileID: 1277480941}
   areaDescriptionText: {fileID: 214798530}
-  material: {fileID: 2100000, guid: d6831658a235cc202986b882bc6f7d30, type: 2}
+  material: {fileID: 0}
   mask: {fileID: 2800000, guid: 9ec79ffaf0cdcd2e08943d7d298de977, type: 3}
   emissionMaps:
   - {fileID: 2800000, guid: 8dba6efe1776dfb1ba4be440dd2b3b24, type: 3}
@@ -2430,9 +2407,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 910811930}
-        m_TargetAssemblyTypeName: Reset, Assembly-CSharp
-        m_MethodName: ResetPanel
+      - m_Target: {fileID: 910811929}
+        m_TargetAssemblyTypeName: ModifyScene, Assembly-CSharp
+        m_MethodName: ResetAreasPanel
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2704,7 +2681,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 910811930}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ModifyScene, Assembly-CSharp
         m_MethodName: ClosePanel
         m_Mode: 6
@@ -2910,9 +2887,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 910811930}
-        m_TargetAssemblyTypeName: Reset, Assembly-CSharp
-        m_MethodName: ClosePanel
+      - m_Target: {fileID: 910811929}
+        m_TargetAssemblyTypeName: ModifyScene, Assembly-CSharp
+        m_MethodName: ClosePanels
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2977,15 +2954,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28dd08d66052986a9f4218c5b050bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  other: {fileID: 910811925}
   areasPanel: {fileID: 576661525}
   panelListText: {fileID: 1761515536}
   areaTitleText: {fileID: 1277480941}
   areaDescriptionText: {fileID: 214798530}
   material: {fileID: 0}
-  mask: {fileID: 0}
-  emissionMaps: []
-  maskTable: {fileID: 0}
+  mask: {fileID: 2800000, guid: 3ef07027bb465b250ae5dca636916eb3, type: 3}
+  emissionMaps:
+  - {fileID: 2800000, guid: b7f7e215b65bf6331afea62b495c8990, type: 3}
+  - {fileID: 2800000, guid: 1aa10e9171238905e9c178b5ede1df14, type: 3}
+  - {fileID: 2800000, guid: 25131d855d8b849ce8e284aa7fedae30, type: 3}
+  - {fileID: 2800000, guid: c7a17504fef8dec4db895841a206b7a8, type: 3}
+  - {fileID: 2800000, guid: be174d176d35db88fb021888dcd17a38, type: 3}
+  maskTable: {fileID: 4900000, guid: b76bf6b209a95e56aa061108951aa6f4, type: 3}
 --- !u!64 &530327613
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3617,7 +3598,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HC
+  m_text: Hippocampus
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3644,8 +3625,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4131,7 +4112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 910811927}
   - component: {fileID: 910811928}
-  - component: {fileID: 910811930}
+  - component: {fileID: 910811929}
   m_Layer: 0
   m_Name: Brain Models
   m_TagString: Untagged
@@ -4179,7 +4160,7 @@ MonoBehaviour:
   panAcrossSlider: {fileID: 247378986}
   panUpDownSlider: {fileID: 220781444}
   zoomSlider: {fileID: 806364961}
---- !u!114 &910811930
+--- !u!114 &910811929
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4355,7 +4336,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 910811930}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ModifyScene, Assembly-CSharp
         m_MethodName: ClosePanel
         m_Mode: 6
@@ -4573,9 +4554,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 910811930}
-        m_TargetAssemblyTypeName: Reset, Assembly-CSharp
-        m_MethodName: ClosePanel
+      - m_Target: {fileID: 910811929}
+        m_TargetAssemblyTypeName: ModifyScene, Assembly-CSharp
+        m_MethodName: ClosePanels
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4950,8 +4931,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5085,8 +5066,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5469,7 +5450,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3/4
+  m_text: '3/4 Brain '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5496,8 +5477,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5786,8 +5767,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6321,27 +6302,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 42a8d2209f8d5b220a6403da71e44678, type: 3}
   m_PrefabInstance: {fileID: 692596173}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1374379437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1374379433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f28dd08d66052986a9f4218c5b050bdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  other: {fileID: 910811925}
-  areasPanel: {fileID: 576661525}
-  panelListText: {fileID: 1761515536}
-  areaTitleText: {fileID: 1277480941}
-  areaDescriptionText: {fileID: 214798530}
-  material: {fileID: 0}
-  mask: {fileID: 0}
-  emissionMaps: []
-  maskTable: {fileID: 0}
 --- !u!64 &1374379441
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6508,7 +6468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28dd08d66052986a9f4218c5b050bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  other: {fileID: 910811925}
   areasPanel: {fileID: 576661525}
   panelListText: {fileID: 1761515536}
   areaTitleText: {fileID: 1277480941}
@@ -6676,27 +6635,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 5788679e2b7f88565acb6aa40d7571fe, type: 3}
   m_PrefabInstance: {fileID: 860203087}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1447186996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447186992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f28dd08d66052986a9f4218c5b050bdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  other: {fileID: 910811925}
-  areasPanel: {fileID: 576661525}
-  panelListText: {fileID: 1761515536}
-  areaTitleText: {fileID: 1277480941}
-  areaDescriptionText: {fileID: 214798530}
-  material: {fileID: 0}
-  mask: {fileID: 0}
-  emissionMaps: []
-  maskTable: {fileID: 0}
 --- !u!64 &1447187000
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6796,8 +6734,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7207,7 +7145,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 910811930}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ModifyScene, Assembly-CSharp
         m_MethodName: ClosePanel
         m_Mode: 6
@@ -7497,7 +7435,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 910811930}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ModifyScene, Assembly-CSharp
         m_MethodName: ClosePanel
         m_Mode: 6
@@ -7636,12 +7574,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28dd08d66052986a9f4218c5b050bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  other: {fileID: 910811925}
   areasPanel: {fileID: 576661525}
   panelListText: {fileID: 1761515536}
   areaTitleText: {fileID: 1277480941}
   areaDescriptionText: {fileID: 214798530}
-  material: {fileID: 2100000, guid: 401a4b6530c59f8148aedb17f5e9e926, type: 2}
+  material: {fileID: 0}
   mask: {fileID: 2800000, guid: 39e8346066f03962a9834a802bcd8db8, type: 3}
   emissionMaps:
   - {fileID: 2800000, guid: 866623703b78f799e90361e909005f6c, type: 3}
@@ -7820,7 +7757,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 910811930}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ModifyScene, Assembly-CSharp
         m_MethodName: ClosePanel
         m_Mode: 6
@@ -8910,7 +8847,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28dd08d66052986a9f4218c5b050bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  other: {fileID: 910811925}
   areasPanel: {fileID: 576661525}
   panelListText: {fileID: 1761515536}
   areaTitleText: {fileID: 1277480941}

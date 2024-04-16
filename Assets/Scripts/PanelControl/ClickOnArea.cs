@@ -7,8 +7,6 @@ using TMPro;
 
 public class ClickOnArea : MonoBehaviour
 {
-    [SerializeField] GameObject other;
-
     [SerializeField] Image areasPanel;
     [SerializeField] TextMeshProUGUI panelListText;
     [SerializeField] TextMeshProUGUI areaTitleText;
@@ -29,7 +27,7 @@ public class ClickOnArea : MonoBehaviour
 
     public void SetUpEmissionMaps()
     {
-        material = GetComponent<Renderer>().material;
+        material = GetComponentInParent<Renderer>().material;
         material.EnableKeyword("_EMISSION");
 
         Texture2D texture = material.mainTexture as Texture2D;
@@ -61,9 +59,9 @@ public class ClickOnArea : MonoBehaviour
             {
                 Color32 pixelColor =
                     mask.GetPixelBilinear(hit.textureCoord.x, hit.textureCoord.y);
+                Debug.Log((pixelColor.r, pixelColor.g, pixelColor.b));
 
                 string areasKey = pixelColor.g.ToString();
-                Debug.Log((pixelColor.r, pixelColor.g, pixelColor.b));
                 if (areas.ContainsKey(areasKey))
                 {
                     material.SetTexture("_EmissionMap", maps[areasKey]);
@@ -71,11 +69,11 @@ public class ClickOnArea : MonoBehaviour
                     areaTitleText.text = areas[areasKey][0];
                     areaDescriptionText.text = areas[areasKey][1];
 
-                    other.GetComponent<ModifyScene>().ResetPanel(false);
+                    GetComponentInParent<ModifyScene>().ResetAreasPanel(false);
                 }
                 else
                 {
-                    other.GetComponent<ModifyScene>().ResetPanel();
+                    GetComponentInParent<ModifyScene>().ResetAreasPanel();
                 }
             }
         }

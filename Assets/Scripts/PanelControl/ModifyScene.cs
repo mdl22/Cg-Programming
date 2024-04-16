@@ -15,36 +15,43 @@ public class ModifyScene : MonoBehaviour
     [SerializeField] Button areasButton;
     [SerializeField] Button backButton;
 
-    public void ResetPanel(bool active = true)
+    public void ResetAreasPanel(bool reset = true)
     {
-        // get material from ClickOnRegion script attached to the child ("default" gameobject)
-        // of the first, and only, active child of brain GameObject
-        Material material = GetComponentInChildren<ClickOnArea>().material;
-
-        if (active)
+        // get material from ClickOnArea script if attached to the child ("default" GameObject)
+        // of the first - and only - active child of brain GameObject
+        if (GetComponentInChildren<ClickOnArea>().material != null)
         {
-            material.SetColor("_EmissionColor", new Color32(0, 0, 0, 0));       // Black
+            if (reset)
+            {
+                GetComponentInChildren<ClickOnArea>().material.SetColor("_EmissionColor",
+                    new Color32(0, 0, 0, 0));           // Black
+            }
+            else
+            {
+                GetComponentInChildren<ClickOnArea>().material.SetColor("_EmissionColor",
+                    new Color32(127, 159, 187, 0));     // Blue
+            }
         }
         else
         {
-            material.SetColor("_EmissionColor", new Color32(127, 159, 187, 0)); // Blue
+            areasButton.gameObject.SetActive(false);
         }
 
-        panelTitleText.gameObject.SetActive(active);
-        panelListText.gameObject.SetActive(active);
+        panelTitleText.gameObject.SetActive(reset);
+        panelListText.gameObject.SetActive(reset);
 
-        areaTitleText.gameObject.SetActive(!active);
-        areaDescriptionText.gameObject.SetActive(!active);
+        areaTitleText.gameObject.SetActive(!reset);
+        areaDescriptionText.gameObject.SetActive(!reset);
 
-        backButton.gameObject.SetActive(!active);
+        backButton.gameObject.SetActive(!reset);
     }
 
-    public void ClosePanel(bool active)
+    public void ClosePanels(bool close)
     {
-        controlsPanel.gameObject.SetActive(active);
+        controlsPanel.gameObject.SetActive(close);
         areasPanel.gameObject.SetActive(false);
-        areasButton.gameObject.SetActive(active);
+        areasButton.gameObject.SetActive(close);
 
-        ResetPanel();
+        ResetAreasPanel();
     }
 }
