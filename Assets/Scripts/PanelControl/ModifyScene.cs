@@ -15,13 +15,13 @@ public class ModifyScene : MonoBehaviour
     [SerializeField] Button areasButton;
     [SerializeField] Button backButton;
 
-    public void ResetAreasPanel(bool reset = true)
+    public void ResetAreasPanel(bool active = true)
     {
         // get material from ClickOnArea script if attached to the child ("default" GameObject)
         // of the first - and only - active child of brain GameObject
-        if (GetComponentInChildren<ClickOnArea>().material != null)
+        if (GetComponentInChildren<ClickOnArea>() != null)
         {
-            if (reset)
+            if (active)
             {
                 GetComponentInChildren<ClickOnArea>().material.SetColor("_EmissionColor",
                     new Color32(0, 0, 0, 0));           // Black
@@ -37,20 +37,20 @@ public class ModifyScene : MonoBehaviour
             areasButton.gameObject.SetActive(false);
         }
 
-        panelTitleText.gameObject.SetActive(reset);
-        panelListText.gameObject.SetActive(reset);
+        panelTitleText.gameObject.SetActive(active);
+        panelListText.gameObject.SetActive(active);
 
-        areaTitleText.gameObject.SetActive(!reset);
-        areaDescriptionText.gameObject.SetActive(!reset);
+        areaTitleText.gameObject.SetActive(!active);
+        areaDescriptionText.gameObject.SetActive(!active);
 
-        backButton.gameObject.SetActive(!reset);
+        backButton.gameObject.SetActive(!active);
     }
 
-    public void ClosePanels(bool close)
+    public void ClosePanels(bool active)
     {
-        controlsPanel.gameObject.SetActive(close);
+        controlsPanel.gameObject.SetActive(active);
         areasPanel.gameObject.SetActive(false);
-        areasButton.gameObject.SetActive(close);
+        areasButton.gameObject.SetActive(active);
 
         ResetAreasPanel();
     }

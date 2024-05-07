@@ -41,7 +41,7 @@ public class ClickOnArea : MonoBehaviour
             string[] fields = line.Split("\t");
             if (line.Length > 0 && Char.IsDigit(fields[0][0]))
             {
-                areas.Add(fields[0], new string[] {fields[2], fields[3]});
+                areas.Add(fields[0], new string[] {fields[2], fields[3], fields[4]});
                 maps.Add(fields[0], emissionMaps[maps.Count]);
 
                 panelListText.text = string.Concat(
@@ -62,12 +62,21 @@ public class ClickOnArea : MonoBehaviour
                 Debug.Log((pixelColor.r, pixelColor.g, pixelColor.b));
 
                 string areasKey = pixelColor.g.ToString();
+                if (Convert.ToInt32(areasKey) > 64)
+                {
+                    areasKey = "64";
+                }
                 if (areas.ContainsKey(areasKey))
                 {
                     material.SetTexture("_EmissionMap", maps[areasKey]);
 
                     areaTitleText.text = areas[areasKey][0];
                     areaDescriptionText.text = areas[areasKey][1];
+                    if (areas[areasKey][2] != "N/A")
+                    {
+                        areaDescriptionText.text = string.Concat(areaDescriptionText.text,
+                            "\n\n", "Parent region: ", areas[areasKey][2].ToLower());
+                    }
 
                     GetComponentInParent<ModifyScene>().ResetAreasPanel(false);
                 }

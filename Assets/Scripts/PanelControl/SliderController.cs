@@ -24,10 +24,18 @@ public class SliderController : MonoBehaviour
         transform.eulerAngles = new Vector3(verticalSlider.value, -horizontalSlider.value, 0);
     }
 
-    void ResetSliders()
+    public void ResetSliders()
     {
-        panUpDownSlider.value = panAcrossSlider.value =
-            verticalSlider.value = horizontalSlider.value = 0;
+        ResetSliderValue(horizontalSlider);
+        ResetSliderValue(verticalSlider);
+        ResetSliderValue(panAcrossSlider);
+        ResetSliderValue(panUpDownSlider);
+
         zoomSlider.value = zoomSlider.minValue;
+    }
+
+    void ResetSliderValue(Slider slider)
+    {
+        slider.value = (slider.minValue + slider.maxValue) / 2;
     }
 }
