@@ -27,7 +27,7 @@ public class ClickOnArea : MonoBehaviour
 
     public void SetUpEmissionMaps()
     {
-        material = GetComponentInParent<Renderer>().material;
+        material = GetComponent<Renderer>().material;
         material.EnableKeyword("_EMISSION");
 
         Texture2D texture = material.mainTexture as Texture2D;

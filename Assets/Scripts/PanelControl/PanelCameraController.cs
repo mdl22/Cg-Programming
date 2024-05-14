@@ -21,10 +21,6 @@ public class PanelCameraController : MonoBehaviour
 
     void Update()
     {
-        // zoom in and out based on a slider
-        transform.position = new Vector3(
-            transform.position.x, transform.position.y, zoomSlider.value);
-
         // Pan along x-axis based on a slider
         transform.position = new Vector3(
             -panAcrossSlider.value, transform.position.y, transform.position.z);
@@ -32,5 +28,9 @@ public class PanelCameraController : MonoBehaviour
         // Pan along y-axis based on a slider
         transform.position = new Vector3(
             transform.position.x, -panUpDownSlider.value, transform.position.z);
+
+        // zoom in and out based on a slider
+        transform.position = new Vector3(
+            transform.position.x, transform.position.y, zoomSlider.value);
     }
 }

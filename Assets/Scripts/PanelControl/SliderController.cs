@@ -26,15 +26,15 @@ public class SliderController : MonoBehaviour
 
     public void ResetSliders()
     {
-        ResetSliderValue(horizontalSlider);
-        ResetSliderValue(verticalSlider);
-        ResetSliderValue(panAcrossSlider);
-        ResetSliderValue(panUpDownSlider);
+        CentralValue(horizontalSlider);
+        CentralValue(verticalSlider);
+        CentralValue(panAcrossSlider);
+        CentralValue(panUpDownSlider);
 
         zoomSlider.value = zoomSlider.minValue;
     }
 
-    void ResetSliderValue(Slider slider)
+    void CentralValue(Slider slider)
     {
         slider.value = (slider.minValue + slider.maxValue) / 2;
     }
