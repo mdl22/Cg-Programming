@@ -78,11 +78,11 @@ public class ClickOnArea : MonoBehaviour
                             "\n\n", "Parent region: ", areas[areasKey][2].ToLower());
                     }
 
-                    GetComponentInParent<ModifyScene>().ResetAreasPanel(false);
+                    GetComponentInParent<PanelButtonController>().ResetAreasPanel(false);
                 }
                 else
                 {
-                    GetComponentInParent<ModifyScene>().ResetAreasPanel();
+                    GetComponentInParent<PanelButtonController>().ResetAreasPanel(true);
                 }
             }
         }

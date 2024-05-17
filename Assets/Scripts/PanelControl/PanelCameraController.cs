@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PanelCameraController : MonoBehaviour
 {
-    [SerializeField] Slider panAcrossSlider;
+    [SerializeField] Slider panLeftRightSlider;
     [SerializeField] Slider panUpDownSlider;
     [SerializeField] Slider zoomSlider;
 
@@ -23,7 +23,7 @@ public class PanelCameraController : MonoBehaviour
     {
         // Pan along x-axis based on a slider
         transform.position = new Vector3(
-            -panAcrossSlider.value, transform.position.y, transform.position.z);
+            -panLeftRightSlider.value, transform.position.y, transform.position.z);
 
         // Pan along y-axis based on a slider
         transform.position = new Vector3(

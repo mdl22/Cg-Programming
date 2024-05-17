@@ -9,7 +9,7 @@ public class SliderController : MonoBehaviour
     [SerializeField] Button resetButton;
     [SerializeField] Slider horizontalSlider;
     [SerializeField] Slider verticalSlider;
-    [SerializeField] Slider panAcrossSlider;
+    [SerializeField] Slider panLeftRightSlider;
     [SerializeField] Slider panUpDownSlider;
     [SerializeField] Slider zoomSlider;
 
@@ -26,15 +26,15 @@ public class SliderController : MonoBehaviour
 
     public void ResetSliders()
     {
-        CentralValue(horizontalSlider);
-        CentralValue(verticalSlider);
-        CentralValue(panAcrossSlider);
-        CentralValue(panUpDownSlider);
+        SetMidpoint(horizontalSlider);
+        SetMidpoint(verticalSlider);
+        SetMidpoint(panLeftRightSlider);
+        SetMidpoint(panUpDownSlider);
 
         zoomSlider.value = zoomSlider.minValue;
     }
 
-    void CentralValue(Slider slider)
+    void SetMidpoint(Slider slider)
     {
         slider.value = (slider.minValue + slider.maxValue) / 2;
     }
