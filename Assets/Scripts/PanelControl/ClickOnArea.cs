@@ -55,6 +55,7 @@ public class ClickOnArea : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && areasPanel.gameObject.activeSelf)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            //if (Physics.Raycast(ray, out RaycastHit hit) && !isOverUI)
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 Color32 pixelColor =

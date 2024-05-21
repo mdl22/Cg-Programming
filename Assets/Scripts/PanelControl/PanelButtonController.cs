@@ -6,9 +6,8 @@ using TMPro;
 
 public class PanelButtonController : MonoBehaviour
 {
-    List<GameObject> models = new List<GameObject>();
+    [SerializeField] GameObject parentButton;
 
-    [SerializeField] Button[] modelButtons;
     [SerializeField] Button controlsButton;
     [SerializeField] Button exitButton;
     [SerializeField] Button areasButton;
@@ -22,59 +21,46 @@ public class PanelButtonController : MonoBehaviour
     [SerializeField] TextMeshProUGUI areaTitleText;
     [SerializeField] TextMeshProUGUI areaDescriptionText;
 
+    List<GameObject> models = new List<GameObject>();
+    Button[] modelButtons;
+
     void Start()
     {
+        modelButtons = parentButton.GetComponentsInChildren<Button>();
+
         foreach (Transform child in transform)
         {
             models.Add(child.gameObject);
         }
 
-        for (int i = 0; i < modelButtons.Length; i++)
+        foreach (Button button in modelButtons)
         {
-            int index = i;
-
-            modelButtons[index].GetComponent<Button>().onClick.AddListener(() =>
-                { ActivateModel(index); });
+            button.onClick.AddListener(() => { ActivateModel(button); });
         }
-        exitButton.GetComponent<Button>().onClick.AddListener(() => { ActivateModel(-1); });
+        exitButton.GetComponent<Button>().onClick.AddListener(() =>
+            { ActivateModel(modelButtons[0], false); });
     }
 
-    void ActivateModel(int index)
+    void ActivateModel(Button clickedButton, bool stayOpen = true)
     {
-        bool exit = false;
-        if (index < 0)
-        {
-            index = 0;
-            exit = true;
-        }
-
         foreach (Button button in modelButtons)
         {
             button.gameObject.SetActive(true);
             button.interactable = true;
         }
 
-        string buttonName = modelButtons[index].name.Split()[0];
-
-        if (buttonName == "HippocampusBoolean")
+        if (clickedButton.name.Split()[0] == "HippocampusBoolean")
         {
-            modelButtons[index].gameObject.SetActive(false);
+            clickedButton.gameObject.SetActive(false);
         }
-        modelButtons[index].interactable = false;
+        clickedButton.interactable = false;
 
         foreach (GameObject model in models)
         {
-            if (model.name == buttonName)
-            {
-                model.SetActive(true);
-            }
-            else
-            {
-                model.SetActive(false);
-            }
+            model.SetActive(model.name == clickedButton.name.Split()[0]);
         }
 
-        ClosePanels(exit ? false : true);
+        ClosePanels(stayOpen);
     }
 
     public void ClosePanels(bool active)
@@ -93,17 +79,9 @@ public class PanelButtonController : MonoBehaviour
         // of the first - and only - active child of brain GameObject
         if (GetComponentInChildren<ClickOnArea>() != null)
         {
-            if (active)
-            {
-                GetComponentInChildren<ClickOnArea>().material.SetColor("_EmissionColor",
-                    new Color32(0, 0, 0, 0));           // Black
-            }
-            else
-            {
-                GetComponentInChildren<ClickOnArea>().material.SetColor("_EmissionColor",
-                    new Color32(127, 159, 187, 0));     // Blue
-            }
-        }
+            GetComponentInChildren<ClickOnArea>().material.SetColor("_EmissionColor",
+                active ? new Color32(0, 0, 0, 0) : new Color32(127, 159, 187, 0));
+        }       //                     black                         blue
         else
         {
             areasButton.gameObject.SetActive(false);
