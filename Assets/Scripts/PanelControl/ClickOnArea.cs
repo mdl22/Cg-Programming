@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
@@ -55,18 +56,20 @@ public class ClickOnArea : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && areasPanel.gameObject.activeSelf)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            //if (Physics.Raycast(ray, out RaycastHit hit) && !isOverUI)
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            bool isOverUI = EventSystem.current.IsPointerOverGameObject();
+            if (!isOverUI && Physics.Raycast(ray, out RaycastHit hit))
             {
                 Color32 pixelColor =
                     mask.GetPixelBilinear(hit.textureCoord.x, hit.textureCoord.y);
-                Debug.Log((pixelColor.r, pixelColor.g, pixelColor.b));
 
-                string areasKey = pixelColor.g.ToString();
-                if (Convert.ToInt32(areasKey) > 64)
-                {
-                    areasKey = "64";
-                }
+                /*int maxValue = pixelColor.g > pixelColor.r ? pixelColor.g : pixelColor.r;
+                maxValue = pixelColor.b > maxValue ? pixelColor.b : maxValue;
+                string areasKey = maxValue == 0 ?
+                    "0" : (1 << (int) Mathf.Log(maxValue, 2)).ToString();*/
+                string areasKey = pixelColor.g == 0 ?
+                    "0" : (1 << (int) Mathf.Log(pixelColor.g, 2)).ToString();
+                Debug.Log((pixelColor.r, pixelColor.g, pixelColor.b, "|", areasKey));
+
                 if (areas.ContainsKey(areasKey))
                 {
                     material.SetTexture("_EmissionMap", maps[areasKey]);

@@ -6,7 +6,7 @@ using TMPro;
 
 public class PanelButtonController : MonoBehaviour
 {
-    [SerializeField] GameObject parentButton;
+    [SerializeField] GameObject modelButtonsParent;
 
     [SerializeField] Button controlsButton;
     [SerializeField] Button exitButton;
@@ -15,6 +15,8 @@ public class PanelButtonController : MonoBehaviour
 
     [SerializeField] Image areasPanel;
     [SerializeField] Image controlsPanel;
+    [SerializeField] Image FimbriaFornixPanel;
+    [SerializeField] Image SharedInputOutputPanel;
 
     [SerializeField] TextMeshProUGUI panelTitleText;
     [SerializeField] TextMeshProUGUI panelListText;
@@ -26,7 +28,7 @@ public class PanelButtonController : MonoBehaviour
 
     void Start()
     {
-        modelButtons = parentButton.GetComponentsInChildren<Button>();
+        modelButtons = modelButtonsParent.GetComponentsInChildren<Button>();
 
         foreach (Transform child in transform)
         {
@@ -48,16 +50,17 @@ public class PanelButtonController : MonoBehaviour
             button.gameObject.SetActive(true);
             button.interactable = true;
         }
+        clickedButton.interactable = false;
 
-        if (clickedButton.name.Split()[0] == "HippocampusBoolean")
+        string buttonName = clickedButton.name.Split()[0];
+        if (buttonName == "ThreeQuarterBoolean" || buttonName == "HippocampusBoolean")
         {
             clickedButton.gameObject.SetActive(false);
         }
-        clickedButton.interactable = false;
 
         foreach (GameObject model in models)
         {
-            model.SetActive(model.name == clickedButton.name.Split()[0]);
+            model.SetActive(model.name == buttonName);
         }
 
         ClosePanels(stayOpen);
@@ -67,8 +70,12 @@ public class PanelButtonController : MonoBehaviour
     {
         controlsPanel.gameObject.SetActive(active);
         controlsButton.gameObject.SetActive(!active);
+
         areasPanel.gameObject.SetActive(false);
         areasButton.gameObject.SetActive(active);
+
+        FimbriaFornixPanel.gameObject.SetActive(false);
+        SharedInputOutputPanel.gameObject.SetActive(false);
 
         ResetAreasPanel(true);
     }
@@ -79,9 +86,9 @@ public class PanelButtonController : MonoBehaviour
         // of the first - and only - active child of brain GameObject
         if (GetComponentInChildren<ClickOnArea>() != null)
         {
-            GetComponentInChildren<ClickOnArea>().material.SetColor("_EmissionColor",
-                active ? new Color32(0, 0, 0, 0) : new Color32(127, 159, 187, 0));
-        }       //                     black                         blue
+            GetComponentInChildren<ClickOnArea>().material.SetColor("_EmissionColor", active ?
+                new Color32(0, 0, 0, 0) : new Color32(127, 159, 187, 0));
+        }       //             black                        blue
         else
         {
             areasButton.gameObject.SetActive(false);
