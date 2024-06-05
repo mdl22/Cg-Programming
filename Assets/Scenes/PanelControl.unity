@@ -3085,7 +3085,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d6d46ed81d8f08e69ae32320aba41f36, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d6d46ed81d8f08e69ae32320aba41f36, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3454,7 +3454,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: 42a8d2209f8d5b220a6403da71e44678, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Transparency
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42a8d2209f8d5b220a6403da71e44678, type: 3}
@@ -3846,7 +3846,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 52a9a37d8a53d5391bdf69204924ead1, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 52a9a37d8a53d5391bdf69204924ead1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4299,7 +4299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5788679e2b7f88565acb6aa40d7571fe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5788679e2b7f88565acb6aa40d7571fe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4315,7 +4315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5788679e2b7f88565acb6aa40d7571fe, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5788679e2b7f88565acb6aa40d7571fe, type: 3}
       propertyPath: m_LocalRotation.y
@@ -4348,6 +4348,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5788679e2b7f88565acb6aa40d7571fe, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 5788679e2b7f88565acb6aa40d7571fe, type: 3}
+      propertyPath: m_TagString
+      value: Transparency
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5788679e2b7f88565acb6aa40d7571fe, type: 3}
@@ -5942,7 +5946,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2f677ecf68b5a6ca18182f37ad264739, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2f677ecf68b5a6ca18182f37ad264739, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5958,7 +5962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2f677ecf68b5a6ca18182f37ad264739, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2f677ecf68b5a6ca18182f37ad264739, type: 3}
       propertyPath: m_LocalRotation.y
@@ -5983,7 +5987,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: 2f677ecf68b5a6ca18182f37ad264739, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0ae0c1547f13ba034af71189b414fc02, type: 2}
+      objectReference: {fileID: 2100000, guid: c380ad841fded7ddd9be225829f587d5, type: 2}
     - target: {fileID: 919132149155446097, guid: 2f677ecf68b5a6ca18182f37ad264739, type: 3}
       propertyPath: m_Name
       value: SharedInputOutputPathway
@@ -6646,7 +6650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ee57220c707d56e72889583feebf9bf2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ee57220c707d56e72889583feebf9bf2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6662,7 +6666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ee57220c707d56e72889583feebf9bf2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ee57220c707d56e72889583feebf9bf2, type: 3}
       propertyPath: m_LocalRotation.y
@@ -6687,7 +6691,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: ee57220c707d56e72889583feebf9bf2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0ae0c1547f13ba034af71189b414fc02, type: 2}
+      objectReference: {fileID: 2100000, guid: c380ad841fded7ddd9be225829f587d5, type: 2}
     - target: {fileID: 919132149155446097, guid: ee57220c707d56e72889583feebf9bf2, type: 3}
       propertyPath: m_Name
       value: FimbriaFornixPathway
@@ -7201,6 +7205,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 42a8d2209f8d5b220a6403da71e44678, type: 3}
+--- !u!114 &1374379445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374379433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867035088873910abaeb21c50565c860, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  opaqueMaterial: {fileID: 2100000, guid: 401a4b6530c59f8148aedb17f5e9e926, type: 2}
+  transparentMaterial: {fileID: 2100000, guid: 796c8f7a1def17b55b10898b40b4fbdc, type: 2}
 --- !u!1 &1385908728
 GameObject:
   m_ObjectHideFlags: 0
@@ -7214,7 +7232,7 @@ GameObject:
   - component: {fileID: 1385908731}
   - component: {fileID: 1385908730}
   m_Layer: 5
-  m_Name: SharedInputOutput Button
+  m_Name: SharedInputOutputPathway Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7229,7 +7247,7 @@ RectTransform:
   m_GameObject: {fileID: 1385908728}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 953698814}
@@ -7285,6 +7303,30 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1374379445}
+        m_TargetAssemblyTypeName: SetRenderingMode, Assembly-CSharp
+        m_MethodName: SetMode
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1447187004}
+        m_TargetAssemblyTypeName: SetRenderingMode, Assembly-CSharp
+        m_MethodName: SetMode
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 812122750}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -7708,6 +7750,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 5788679e2b7f88565acb6aa40d7571fe, type: 3}
+--- !u!114 &1447187004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447186992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867035088873910abaeb21c50565c860, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  opaqueMaterial: {fileID: 2100000, guid: b841a1846a58db391bc796a63a062ad4, type: 2}
+  transparentMaterial: {fileID: 2100000, guid: b841a1846a58db391bc796a63a062ad4, type: 2}
 --- !u!1 &1460266346
 GameObject:
   m_ObjectHideFlags: 0
@@ -7852,7 +7908,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b638c811e3149065186c6b5e9b765eb2, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b638c811e3149065186c6b5e9b765eb2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8392,7 +8448,7 @@ GameObject:
   - component: {fileID: 1550610749}
   - component: {fileID: 1550610748}
   m_Layer: 5
-  m_Name: FimbriaFornix Button
+  m_Name: FimbriaFornixPathway Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8442,6 +8498,30 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1374379445}
+        m_TargetAssemblyTypeName: SetRenderingMode, Assembly-CSharp
+        m_MethodName: SetMode
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1447187004}
+        m_TargetAssemblyTypeName: SetRenderingMode, Assembly-CSharp
+        m_MethodName: SetMode
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 812122750}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -8561,7 +8641,7 @@ RectTransform:
   m_GameObject: {fileID: 1550610747}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 745005883}
@@ -8701,6 +8781,30 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1374379445}
+        m_TargetAssemblyTypeName: SetRenderingMode, Assembly-CSharp
+        m_MethodName: SetMode
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1447187004}
+        m_TargetAssemblyTypeName: SetRenderingMode, Assembly-CSharp
+        m_MethodName: SetMode
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 812122750}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive

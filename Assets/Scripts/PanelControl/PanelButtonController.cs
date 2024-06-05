@@ -28,39 +28,37 @@ public class PanelButtonController : MonoBehaviour
 
     void Start()
     {
-        modelButtons = modelButtonsParent.GetComponentsInChildren<Button>();
-
         foreach (Transform child in transform)
         {
             models.Add(child.gameObject);
         }
 
+        modelButtons = modelButtonsParent.GetComponentsInChildren<Button>();
+
         foreach (Button button in modelButtons)
         {
-            button.onClick.AddListener(() => { ActivateModel(button); });
+            button.onClick.AddListener(() => { ActivateModel(button, true); });
         }
         exitButton.GetComponent<Button>().onClick.AddListener(() =>
             { ActivateModel(modelButtons[0], false); });
     }
 
-    void ActivateModel(Button clickedButton, bool stayOpen = true)
+    void ActivateModel(Button clickedButton, bool stayOpen)
     {
+        string clicked = clickedButton.name.Split()[0];
+
         foreach (Button button in modelButtons)
         {
-            button.gameObject.SetActive(true);
-            button.interactable = true;
-        }
-        clickedButton.interactable = false;
+            bool notClicked = clicked != button.name.Split()[0];
 
-        string buttonName = clickedButton.name.Split()[0];
-        if (buttonName == "ThreeQuarterBoolean" || buttonName == "HippocampusBoolean")
-        {
-            clickedButton.gameObject.SetActive(false);
+            button.gameObject.SetActive(notClicked ||
+                clicked != "ThreeQuarterBoolean" && clicked != "HippocampusBoolean");
+            button.interactable = notClicked;
         }
 
         foreach (GameObject model in models)
         {
-            model.SetActive(model.name == buttonName);
+            model.SetActive(model.name == clicked);
         }
 
         ClosePanels(stayOpen);
