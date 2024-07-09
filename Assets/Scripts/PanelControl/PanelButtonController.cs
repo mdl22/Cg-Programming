@@ -85,8 +85,9 @@ public class PanelButtonController : MonoBehaviour
         if (GetComponentInChildren<ClickOnArea>() != null)
         {
             GetComponentInChildren<ClickOnArea>().material.SetColor("_EmissionColor", active ?
+                //          black                     blue
                 new Color32(0, 0, 0, 0) : new Color32(127, 159, 187, 0));
-        }       //             black                        blue
+        }
         else
         {
             areasButton.gameObject.SetActive(false);

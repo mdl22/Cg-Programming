@@ -7,30 +7,16 @@ public class PanelCameraController : MonoBehaviour
 {
     [SerializeField] Slider panLeftRightSlider;
     [SerializeField] Slider panUpDownSlider;
-    [SerializeField] Slider zoomSlider;
 
-    Vector3 startPosition;
-
-    void Start()
+    public void PanAlongXAxis()
     {
-        startPosition = transform.position;
-
-        zoomSlider.value = zoomSlider.minValue = startPosition.z;
-        zoomSlider.maxValue = 0;
-    }
-
-    void Update()
-    {
-        // Pan along x-axis based on a slider
         transform.position = new Vector3(
             -panLeftRightSlider.value, transform.position.y, transform.position.z);
+    }
 
-        // Pan along y-axis based on a slider
+    public void PanAlongYAxis()
+    {
         transform.position = new Vector3(
             transform.position.x, -panUpDownSlider.value, transform.position.z);
-
-        // zoom in and out based on a slider
-        transform.position = new Vector3(
-            transform.position.x, transform.position.y, zoomSlider.value);
     }
 }

@@ -40,8 +40,10 @@ public class ClickOnArea : MonoBehaviour
         foreach (string line in maskTable.text.Split("\n"))
         {
             string[] fields = line.Split("\t");
+            // ignore: EOF and header
             if (line.Length > 0 && Char.IsDigit(fields[0][0]))
             {
+                //        value,                   name, description, parent region
                 areas.Add(fields[0], new string[] {fields[2], fields[3], fields[4]});
                 maps.Add(fields[0], emissionMaps[maps.Count]);
 
@@ -61,6 +63,9 @@ public class ClickOnArea : MonoBehaviour
             {
                 Color32 pixelColor =
                     mask.GetPixelBilinear(hit.textureCoord.x, hit.textureCoord.y);
+                Texture2D texture = GetComponent<Renderer>().material.mainTexture as Texture2D;
+                Color32 texColor =
+                    texture.GetPixelBilinear(hit.textureCoord.x, hit.textureCoord.y);
 
                 /*int maxValue = pixelColor.g > pixelColor.r ? pixelColor.g : pixelColor.r;
                 maxValue = pixelColor.b > maxValue ? pixelColor.b : maxValue;
@@ -68,7 +73,8 @@ public class ClickOnArea : MonoBehaviour
                     "0" : (1 << (int) Mathf.Log(maxValue, 2)).ToString();*/
                 string areasKey = pixelColor.g == 0 ?
                     "0" : (1 << (int) Mathf.Log(pixelColor.g, 2)).ToString();
-                Debug.Log((pixelColor.r, pixelColor.g, pixelColor.b, "|", areasKey));
+//Debug.Log((pixelColor.r, pixelColor.g, pixelColor.b, "|", areasKey));
+Debug.Log((texColor.r, texColor.g, texColor.b, "|", areasKey));
 
                 if (areas.ContainsKey(areasKey))
                 {

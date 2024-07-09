@@ -14,7 +14,7 @@ public class SetRenderingMode : MonoBehaviour
         renderer.material = mode == 0 ? opaqueMaterial : transparentMaterial;
 
         Color alpha = renderer.material.color;
-        alpha.a = mode == 0 ? 1 : 0.25f;
+        alpha.a = mode == 0 ? 1 : 63f / 255f;
         renderer.material.color = alpha;
     }
 }
