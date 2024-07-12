@@ -28,6 +28,8 @@ public class PanelButtonController : MonoBehaviour
 
     void Start()
     {
+        backButton.GetComponent<Button>().onClick.AddListener(() => { ResetAreasPanel(true); });
+
         foreach (Transform child in transform)
         {
             models.Add(child.gameObject);
@@ -61,6 +63,9 @@ public class PanelButtonController : MonoBehaviour
             model.SetActive(model.name == clicked);
         }
 
+        FimbriaFornixPanel.gameObject.SetActive(false);
+        SharedInputOutputPanel.gameObject.SetActive(false);
+
         ClosePanels(stayOpen);
     }
 
@@ -72,21 +77,22 @@ public class PanelButtonController : MonoBehaviour
         areasPanel.gameObject.SetActive(false);
         areasButton.gameObject.SetActive(active);
 
-        FimbriaFornixPanel.gameObject.SetActive(false);
-        SharedInputOutputPanel.gameObject.SetActive(false);
-
         ResetAreasPanel(true);
     }
 
-    public void ResetAreasPanel(bool active)
+    public void ResetAreasPanel(bool active, int dimming = 8)
     {
         // get material from ClickOnArea script if attached to the child ("default" GameObject)
         // of the first - and only - active child of brain GameObject
         if (GetComponentInChildren<ClickOnArea>() != null)
         {
-            GetComponentInChildren<ClickOnArea>().material.SetColor("_EmissionColor", active ?
-                //          black                     blue
-                new Color32(0, 0, 0, 0) : new Color32(127, 159, 187, 0));
+            //Material material = GetComponentInChildren<ClickOnArea>().material;
+            //Texture2D texture = material.mainTexture as Texture2D;
+//var mip1Data = m_Texture2D.GetPixelData<Color32>(1);
+
+            GetComponentInChildren<ClickOnArea>().material.SetColor(
+                "_EmissionColor", new Color32(
+                (byte) (127 >> dimming), (byte) (159 >> dimming), (byte) (187 >> dimming), 0));
         }
         else
         {

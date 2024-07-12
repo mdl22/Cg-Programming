@@ -1567,8 +1567,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 1672952484}
   m_HandleRect: {fileID: 1188404770}
   m_Direction: 0
-  m_MinValue: -2
-  m_MaxValue: 2
+  m_MinValue: -0.1
+  m_MaxValue: 0.1
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -1841,8 +1841,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 1013215066}
   m_HandleRect: {fileID: 1624204343}
   m_Direction: 0
-  m_MinValue: -5
-  m_MaxValue: 5
+  m_MinValue: -0.1
+  m_MaxValue: 0.1
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -2477,19 +2477,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 461948706}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 604758470}
-        m_TargetAssemblyTypeName: PanelButtonController, Assembly-CSharp
-        m_MethodName: ResetAreasPanel
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &461948706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3319,7 +3307,7 @@ Transform:
   m_GameObject: {fileID: 604758468}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1431063508}
@@ -4389,16 +4377,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 210092786}
   m_FillRect: {fileID: 63860520}
   m_HandleRect: {fileID: 210092785}
-  m_Direction: 0
-  m_MinValue: 1
-  m_MaxValue: 10
+  m_Direction: 1
+  m_MinValue: 0.02
+  m_MaxValue: 0.1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 604758471}
-        m_TargetAssemblyTypeName: SliderController, Assembly-CSharp
+      - m_Target: {fileID: 1823079376}
+        m_TargetAssemblyTypeName: PanelCameraController, Assembly-CSharp
         m_MethodName: Zoom
         m_Mode: 1
         m_Arguments:
@@ -7311,7 +7299,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
+  m_AnchoredPosition: {x: 5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1374379433 stripped
@@ -10131,7 +10119,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 0.1
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10155,7 +10143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823079372}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -50}
+  m_LocalPosition: {x: 0, y: 0.02, z: -50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10176,6 +10164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panLeftRightSlider: {fileID: 247378986}
   panUpDownSlider: {fileID: 220781444}
+  zoomSlider: {fileID: 806364961}
 --- !u!1 &1904651309
 GameObject:
   m_ObjectHideFlags: 0

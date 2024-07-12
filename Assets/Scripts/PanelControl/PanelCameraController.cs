@@ -7,6 +7,7 @@ public class PanelCameraController : MonoBehaviour
 {
     [SerializeField] Slider panLeftRightSlider;
     [SerializeField] Slider panUpDownSlider;
+    [SerializeField] Slider zoomSlider;
 
     public void PanAlongXAxis()
     {
@@ -18,5 +19,10 @@ public class PanelCameraController : MonoBehaviour
     {
         transform.position = new Vector3(
             transform.position.x, -panUpDownSlider.value, transform.position.z);
+    }
+
+    public void Zoom()
+    {
+        Camera.main.orthographicSize = zoomSlider.value;
     }
 }

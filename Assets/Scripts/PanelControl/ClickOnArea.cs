@@ -24,14 +24,88 @@ public class ClickOnArea : MonoBehaviour
     void Start()
     {
         SetUpEmissionMaps();
+/*for (int i = 1; i < 256; i++)
+{
+//Debug.Log((System.Convert.ToString(i, 2), System.Convert.ToString(i, 2).Split('1').Length-1));
+string num = System.Convert.ToString(i, 2);
+int msb = 1 << (int) Mathf.Log(i, 2);
+string num2 = System.Convert.ToString(i - msb, 2);
+int msb2 = 1 << (int) Mathf.Log(i - msb, 2);
+Debug.Log((num, msb, num2, msb2));
+}*/
     }
 
-    public void SetUpEmissionMaps()
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && areasPanel.gameObject.activeSelf)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            bool isOverUI = EventSystem.current.IsPointerOverGameObject();
+            if (!isOverUI && Physics.Raycast(ray, out RaycastHit hit))
+            {
+                Color32 pixelColor =
+                    mask.GetPixelBilinear(hit.textureCoord.x, hit.textureCoord.y);
+
+                int numSetBits = System.Convert.ToString(pixelColor.g, 2).Split('1').Length - 1;
+Debug.Log(numSetBits);
+
+                switch (numSetBits)
+                {
+                    case 0:
+                        IdentifyArea(pixelColor);
+                        break;
+                    case 1:
+                        IdentifyArea(pixelColor, 0);
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                }
+            }
+        }
+    }
+
+    void IdentifyArea(Color32 pixelColor)
+    {
+        GetComponentInParent<PanelButtonController>().ResetAreasPanel(true);
+    }
+
+    void IdentifyArea(Color32 pixelColor, int dimming)
+    {
+        int mostSigBit = 1 << (int) Mathf.Log(pixelColor.g, 2);
+
+        /*int maxValue = pixelColor.g > pixelColor.r ? pixelColor.g : pixelColor.r;
+        maxValue = pixelColor.b > maxValue ? pixelColor.b : maxValue;
+        string areasKey = maxValue == 0 ?
+            "0" : (1 << (int) Mathf.Log(maxValue, 2)).ToString();*/
+                string areasKey = pixelColor.g == 0 ? "0" : mostSigBit.ToString();
+Debug.Log((pixelColor.r, pixelColor.g, pixelColor.b, "|", areasKey));
+
+        if (areas.ContainsKey(areasKey))
+        {
+            material.SetTexture("_EmissionMap", maps[areasKey]);
+
+            areaTitleText.text = areas[areasKey][0];
+            areaDescriptionText.text = areas[areasKey][1];
+            if (areas[areasKey][2] != "N/A")
+            {
+                areaDescriptionText.text = string.Concat(areaDescriptionText.text,
+                    "\n\n", "Parent region: ", areas[areasKey][2].ToLower());
+            }
+
+            GetComponentInParent<PanelButtonController>().ResetAreasPanel(false, dimming);
+        }
+        else
+        {
+            GetComponentInParent<PanelButtonController>().ResetAreasPanel(true);
+        }
+    }
+
+    void SetUpEmissionMaps()
     {
         material = GetComponent<Renderer>().material;
         material.EnableKeyword("_EMISSION");
-
-        Texture2D texture = material.mainTexture as Texture2D;
 
         areas.Clear();
         maps.Clear();
@@ -49,51 +123,6 @@ public class ClickOnArea : MonoBehaviour
 
                 panelListText.text = string.Concat(
                     string.Concat(panelListText.text, fields[2]), "\n\n");
-            }
-        }
-    }
-
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0) && areasPanel.gameObject.activeSelf)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            bool isOverUI = EventSystem.current.IsPointerOverGameObject();
-            if (!isOverUI && Physics.Raycast(ray, out RaycastHit hit))
-            {
-                Color32 pixelColor =
-                    mask.GetPixelBilinear(hit.textureCoord.x, hit.textureCoord.y);
-                Texture2D texture = GetComponent<Renderer>().material.mainTexture as Texture2D;
-                Color32 texColor =
-                    texture.GetPixelBilinear(hit.textureCoord.x, hit.textureCoord.y);
-
-                /*int maxValue = pixelColor.g > pixelColor.r ? pixelColor.g : pixelColor.r;
-                maxValue = pixelColor.b > maxValue ? pixelColor.b : maxValue;
-                string areasKey = maxValue == 0 ?
-                    "0" : (1 << (int) Mathf.Log(maxValue, 2)).ToString();*/
-                string areasKey = pixelColor.g == 0 ?
-                    "0" : (1 << (int) Mathf.Log(pixelColor.g, 2)).ToString();
-//Debug.Log((pixelColor.r, pixelColor.g, pixelColor.b, "|", areasKey));
-Debug.Log((texColor.r, texColor.g, texColor.b, "|", areasKey));
-
-                if (areas.ContainsKey(areasKey))
-                {
-                    material.SetTexture("_EmissionMap", maps[areasKey]);
-
-                    areaTitleText.text = areas[areasKey][0];
-                    areaDescriptionText.text = areas[areasKey][1];
-                    if (areas[areasKey][2] != "N/A")
-                    {
-                        areaDescriptionText.text = string.Concat(areaDescriptionText.text,
-                            "\n\n", "Parent region: ", areas[areasKey][2].ToLower());
-                    }
-
-                    GetComponentInParent<PanelButtonController>().ResetAreasPanel(false);
-                }
-                else
-                {
-                    GetComponentInParent<PanelButtonController>().ResetAreasPanel(true);
-                }
             }
         }
     }

@@ -78,11 +78,6 @@ public class SliderController : MonoBehaviour
         transform.Rotate(transform.right * verticalSlider.value);*/
     }
 
-    public void Zoom()
-    {
-        transform.localScale = originalScale * zoomSlider.value;
-    }
-
     public void ResetSliders()
     {
         SetMidpoint(horizontalSlider);
