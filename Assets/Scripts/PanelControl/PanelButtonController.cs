@@ -9,7 +9,7 @@ public class PanelButtonController : MonoBehaviour
     [SerializeField] GameObject modelButtonsParent;
 
     [SerializeField] Button controlsButton;
-    [SerializeField] Button exitButton;
+    [SerializeField] Button ExitButton;
     [SerializeField] Button areasButton;
     [SerializeField] Button backButton;
 
@@ -41,11 +41,12 @@ public class PanelButtonController : MonoBehaviour
         {
             button.onClick.AddListener(() => { ActivateModel(button, true); });
         }
-        exitButton.GetComponent<Button>().onClick.AddListener(() =>
+        // on exit, activate WholeBrain model, make WholeBrain button non-interactable
+        ExitButton.GetComponent<Button>().onClick.AddListener(() =>
             { ActivateModel(modelButtons[0], false); });
     }
 
-    void ActivateModel(Button clickedButton, bool stayOpen)
+    void ActivateModel(Button clickedButton, bool keepPanelsOpen)
     {
         string clicked = clickedButton.name.Split()[0];
 
@@ -53,8 +54,7 @@ public class PanelButtonController : MonoBehaviour
         {
             bool notClicked = clicked != button.name.Split()[0];
 
-            button.gameObject.SetActive(notClicked ||
-                clicked != "ThreeQuarterBoolean" && clicked != "HippocampusBoolean");
+            button.gameObject.SetActive(notClicked || !clicked.Contains("Boolean"));
             button.interactable = notClicked;
         }
 
@@ -66,7 +66,7 @@ public class PanelButtonController : MonoBehaviour
         FimbriaFornixPanel.gameObject.SetActive(false);
         SharedInputOutputPanel.gameObject.SetActive(false);
 
-        ClosePanels(stayOpen);
+        ClosePanels(keepPanelsOpen);
     }
 
     public void ClosePanels(bool active)
@@ -75,30 +75,21 @@ public class PanelButtonController : MonoBehaviour
         controlsButton.gameObject.SetActive(!active);
 
         areasPanel.gameObject.SetActive(false);
-        areasButton.gameObject.SetActive(active);
+        foreach (Transform child in transform)
+        {
+           if (child.gameObject.activeSelf)
+           {
+               areasButton.gameObject.SetActive(
+                   active && !child.gameObject.name.Contains("Boolean") );
+               break;
+           }
+        }
 
         ResetAreasPanel(true);
     }
 
-    public void ResetAreasPanel(bool active, int dimming = 8)
+    public void ResetAreasPanel(bool active)
     {
-        // get material from ClickOnArea script if attached to the child ("default" GameObject)
-        // of the first - and only - active child of brain GameObject
-        if (GetComponentInChildren<ClickOnArea>() != null)
-        {
-            //Material material = GetComponentInChildren<ClickOnArea>().material;
-            //Texture2D texture = material.mainTexture as Texture2D;
-//var mip1Data = m_Texture2D.GetPixelData<Color32>(1);
-
-            GetComponentInChildren<ClickOnArea>().material.SetColor(
-                "_EmissionColor", new Color32(
-                (byte) (127 >> dimming), (byte) (159 >> dimming), (byte) (187 >> dimming), 0));
-        }
-        else
-        {
-            areasButton.gameObject.SetActive(false);
-        }
-
         panelTitleText.gameObject.SetActive(active);
         panelListText.gameObject.SetActive(active);
 

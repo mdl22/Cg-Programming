@@ -2328,7 +2328,6 @@ MonoBehaviour:
   panelListText: {fileID: 1761515536}
   areaTitleText: {fileID: 1277480941}
   areaDescriptionText: {fileID: 214798530}
-  material: {fileID: 2100000, guid: 300eb2a4130470022957dad8b0129044, type: 2}
   mask: {fileID: 2800000, guid: da10ae29a2a9c476389cfb40d6e547a5, type: 3}
   emissionMaps:
   - {fileID: 2800000, guid: 05a294ecf165ddfae98b59d6a53a9cdc, type: 3}
@@ -2388,7 +2387,6 @@ MonoBehaviour:
   panelListText: {fileID: 1761515536}
   areaTitleText: {fileID: 1277480941}
   areaDescriptionText: {fileID: 214798530}
-  material: {fileID: 2100000, guid: d6831658a235cc202986b882bc6f7d30, type: 2}
   mask: {fileID: 2800000, guid: 9ec79ffaf0cdcd2e08943d7d298de977, type: 3}
   emissionMaps:
   - {fileID: 2800000, guid: 8dba6efe1776dfb1ba4be440dd2b3b24, type: 3}
@@ -2477,7 +2475,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 461948706}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 604758470}
+        m_TargetAssemblyTypeName: PanelButtonController, Assembly-CSharp
+        m_MethodName: ResetAreasPanel
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &461948706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2895,7 +2905,6 @@ MonoBehaviour:
   panelListText: {fileID: 1761515536}
   areaTitleText: {fileID: 1277480941}
   areaDescriptionText: {fileID: 214798530}
-  material: {fileID: 2100000, guid: 0ef6f491cff5f55f9a92697caf3604a2, type: 2}
   mask: {fileID: 2800000, guid: 3ef07027bb465b250ae5dca636916eb3, type: 3}
   emissionMaps:
   - {fileID: 2800000, guid: b7f7e215b65bf6331afea62b495c8990, type: 3}
@@ -3336,7 +3345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modelButtonsParent: {fileID: 933554887}
   controlsButton: {fileID: 1327673506}
-  exitButton: {fileID: 939037504}
+  ExitButton: {fileID: 939037504}
   areasButton: {fileID: 1615293641}
   backButton: {fileID: 461948705}
   areasPanel: {fileID: 576661525}
@@ -5017,19 +5026,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 939037505}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 604758470}
-        m_TargetAssemblyTypeName: PanelButtonController, Assembly-CSharp
-        m_MethodName: ClosePanels
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &939037505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5923,9 +5920,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7635826562936255635, guid: 1620e565b34f130c783f7d9e63d9aab4, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 1620e565b34f130c783f7d9e63d9aab4, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 1620e565b34f130c783f7d9e63d9aab4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d6831658a235cc202986b882bc6f7d30, type: 2}
+    - target: {fileID: -7635826562936255635, guid: 1620e565b34f130c783f7d9e63d9aab4, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8c45d836ae223f575806d858ff9e8ee7, type: 2}
     - target: {fileID: 919132149155446097, guid: 1620e565b34f130c783f7d9e63d9aab4, type: 3}
       propertyPath: m_Name
       value: WholeBrain
@@ -8790,7 +8799,6 @@ MonoBehaviour:
   panelListText: {fileID: 1761515536}
   areaTitleText: {fileID: 1277480941}
   areaDescriptionText: {fileID: 214798530}
-  material: {fileID: 2100000, guid: 401a4b6530c59f8148aedb17f5e9e926, type: 2}
   mask: {fileID: 2800000, guid: 39e8346066f03962a9834a802bcd8db8, type: 3}
   emissionMaps:
   - {fileID: 2800000, guid: 866623703b78f799e90361e909005f6c, type: 3}
@@ -9748,8 +9756,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
