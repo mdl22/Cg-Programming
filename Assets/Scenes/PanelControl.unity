@@ -2324,6 +2324,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28dd08d66052986a9f4218c5b050bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controlExitButton: {fileID: 939037504}
+  resetButton: {fileID: 142673907}
+  areasExitButton: {fileID: 526869930}
+  backButton: {fileID: 461948705}
   areasPanel: {fileID: 576661525}
   panelListText: {fileID: 1761515536}
   areaTitleText: {fileID: 1277480941}
@@ -2383,6 +2387,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28dd08d66052986a9f4218c5b050bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controlExitButton: {fileID: 939037504}
+  resetButton: {fileID: 142673907}
+  areasExitButton: {fileID: 526869930}
+  backButton: {fileID: 461948705}
   areasPanel: {fileID: 576661525}
   panelListText: {fileID: 1761515536}
   areaTitleText: {fileID: 1277480941}
@@ -2901,6 +2909,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28dd08d66052986a9f4218c5b050bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controlExitButton: {fileID: 939037504}
+  resetButton: {fileID: 142673907}
+  areasExitButton: {fileID: 526869930}
+  backButton: {fileID: 461948705}
   areasPanel: {fileID: 576661525}
   panelListText: {fileID: 1761515536}
   areaTitleText: {fileID: 1277480941}
@@ -3345,13 +3357,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modelButtonsParent: {fileID: 933554887}
   controlsButton: {fileID: 1327673506}
-  ExitButton: {fileID: 939037504}
+  exitButton: {fileID: 939037504}
   areasButton: {fileID: 1615293641}
   backButton: {fileID: 461948705}
-  areasPanel: {fileID: 576661525}
   controlsPanel: {fileID: 1103683380}
-  FimbriaFornixPanel: {fileID: 1007528486}
-  SharedInputOutputPanel: {fileID: 1345489971}
+  areasPanel: {fileID: 576661525}
+  fimbriaFornixPanel: {fileID: 1007528486}
+  sharedInputOutputPanel: {fileID: 1345489971}
   panelTitleText: {fileID: 1634854026}
   panelListText: {fileID: 1761515536}
   areaTitleText: {fileID: 1277480941}
@@ -8795,6 +8807,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28dd08d66052986a9f4218c5b050bdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controlExitButton: {fileID: 939037504}
+  resetButton: {fileID: 142673907}
+  areasExitButton: {fileID: 526869930}
+  backButton: {fileID: 461948705}
   areasPanel: {fileID: 576661525}
   panelListText: {fileID: 1761515536}
   areaTitleText: {fileID: 1277480941}

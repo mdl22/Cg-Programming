@@ -8,7 +8,13 @@ using TMPro;
 
 public class ClickOnArea : MonoBehaviour
 {
+    [SerializeField] Button controlExitButton;
+    [SerializeField] Button resetButton;
+    [SerializeField] Button areasExitButton;
+    [SerializeField] Button backButton;
+
     [SerializeField] Image areasPanel;
+
     [SerializeField] TextMeshProUGUI panelListText;
     [SerializeField] TextMeshProUGUI areaTitleText;
     [SerializeField] TextMeshProUGUI areaDescriptionText;
@@ -17,17 +23,30 @@ public class ClickOnArea : MonoBehaviour
     [SerializeField] Texture2D[] emissionMaps;
     [SerializeField] TextAsset maskTable;
 
+    Material material;
+
     Dictionary<string, string[]> areas = new Dictionary<string, string[]>();
     Dictionary<string, Texture2D> maps = new Dictionary<string, Texture2D>();
 
     void Start()
     {
+        material = GetComponent<Renderer>().material;
+        material.EnableKeyword("_EMISSION");
+
         SetUpEmissionMaps();
+
+        controlExitButton.GetComponent<Button>().onClick.AddListener(() =>
+            { SetEmissionColor(0); });
+        resetButton.GetComponent<Button>().onClick.AddListener(() =>
+            { SetEmissionColor(0); });
+        areasExitButton.GetComponent<Button>().onClick.AddListener(() =>
+            { SetEmissionColor(0); });
+        backButton.GetComponent<Button>().onClick.AddListener(() =>
+            { SetEmissionColor(0); });
     }
 
     void Update()
     {
-        Material material = GetComponent<Renderer>().material;
 
         if (Input.GetMouseButtonDown(0) && areasPanel.gameObject.activeSelf)
         {
@@ -44,7 +63,7 @@ maxValue = pixelColour.b > maxValue ? pixelColour.b : maxValue;*/
 
                 if (bitString.Split('1').Length - 1 == 0)   // no set bits
                 {
-                    material.SetColor("_EmissionColor", new Color32(0, 0, 0, 0));
+                    SetEmissionColor(0);
                     GetComponentInParent<PanelButtonController>().ResetAreasPanel(true);
                 }
                 else
@@ -63,23 +82,16 @@ maxValue = pixelColour.b > maxValue ? pixelColour.b : maxValue;*/
                                 "\n\n", "Parent region: ", areas[areasKey][2].ToLower());
                         }
 
-                        material.SetColor("_EmissionColor", new Color32(127, 127, 127, 127));
+                        SetEmissionColor(127);
                         GetComponentInParent<PanelButtonController>().ResetAreasPanel(false);
                     }
                 }
-            }
-            else
-            {
-                //material.SetColor("_EmissionColor", new Color32(0, 0, 0, 0));
             }
         }
     }
 
     void SetUpEmissionMaps()
     {
-        //material = GetComponent<Renderer>().material;
-        GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
-
         areas.Clear();
         maps.Clear();
 
@@ -97,5 +109,10 @@ maxValue = pixelColour.b > maxValue ? pixelColour.b : maxValue;*/
                     string.Concat(panelListText.text, fields[2]), "\n\n");
             }
         }
+    }
+
+    void SetEmissionColor(byte intensity)
+    {
+        material.SetColor("_EmissionColor", new Color32(intensity, intensity, intensity, 0));
     }
 }

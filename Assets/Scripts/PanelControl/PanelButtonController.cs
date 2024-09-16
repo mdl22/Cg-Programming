@@ -9,14 +9,14 @@ public class PanelButtonController : MonoBehaviour
     [SerializeField] GameObject modelButtonsParent;
 
     [SerializeField] Button controlsButton;
-    [SerializeField] Button ExitButton;
+    [SerializeField] Button exitButton;
     [SerializeField] Button areasButton;
     [SerializeField] Button backButton;
 
-    [SerializeField] Image areasPanel;
     [SerializeField] Image controlsPanel;
-    [SerializeField] Image FimbriaFornixPanel;
-    [SerializeField] Image SharedInputOutputPanel;
+    [SerializeField] Image areasPanel;
+    [SerializeField] Image fimbriaFornixPanel;
+    [SerializeField] Image sharedInputOutputPanel;
 
     [SerializeField] TextMeshProUGUI panelTitleText;
     [SerializeField] TextMeshProUGUI panelListText;
@@ -42,7 +42,7 @@ public class PanelButtonController : MonoBehaviour
             button.onClick.AddListener(() => { ActivateModel(button, true); });
         }
         // on exit, activate WholeBrain model, make WholeBrain button non-interactable
-        ExitButton.GetComponent<Button>().onClick.AddListener(() =>
+        exitButton.GetComponent<Button>().onClick.AddListener(() =>
             { ActivateModel(modelButtons[0], false); });
     }
 
@@ -63,8 +63,8 @@ public class PanelButtonController : MonoBehaviour
             model.SetActive(model.name == clicked);
         }
 
-        FimbriaFornixPanel.gameObject.SetActive(false);
-        SharedInputOutputPanel.gameObject.SetActive(false);
+        fimbriaFornixPanel.gameObject.SetActive(false);
+        sharedInputOutputPanel.gameObject.SetActive(false);
 
         ClosePanels(keepPanelsOpen);
     }
