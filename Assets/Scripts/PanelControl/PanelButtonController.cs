@@ -28,7 +28,8 @@ public class PanelButtonController : MonoBehaviour
 
     void Start()
     {
-        backButton.GetComponent<Button>().onClick.AddListener(() => { ResetAreasPanel(true); });
+        backButton.GetComponent<Button>().onClick.AddListener(() =>
+            { ResetAreasPanel(true); });
 
         foreach (Transform child in transform)
         {
@@ -80,7 +81,7 @@ public class PanelButtonController : MonoBehaviour
            if (child.gameObject.activeSelf)
            {
                areasButton.gameObject.SetActive(
-                   active && !child.gameObject.name.Contains("Boolean") );
+                   active && !child.gameObject.name.Contains("Boolean"));
                break;
            }
         }

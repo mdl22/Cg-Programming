@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class SliderController : MonoBehaviour
 {
+    [SerializeField] GameObject modelButtons;
     [SerializeField] Transform customPivot;
     [SerializeField] Button exitButton;
     [SerializeField] Button resetButton;
@@ -14,14 +15,19 @@ public class SliderController : MonoBehaviour
     [SerializeField] Slider panUpDownSlider;
     [SerializeField] Slider zoomSlider;
 
-    Vector3 originalScale;
+    //Vector3 originalScale;
 
     void Start()
     {
         exitButton.GetComponent<Button>().onClick.AddListener(ResetSliders);
         resetButton.GetComponent<Button>().onClick.AddListener(ResetSliders);
 
-        originalScale = transform.localScale;
+        foreach (Button button in modelButtons.GetComponentsInChildren<Button>())
+        {
+            button.onClick.AddListener(ResetSliders);
+        }
+
+        //originalScale = transform.localScale;
     }
 
     void Update()

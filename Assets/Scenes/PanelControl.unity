@@ -3380,6 +3380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4e4f7b23189229586efc099bd07d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  modelButtons: {fileID: 933554887}
   customPivot: {fileID: 1191021716}
   exitButton: {fileID: 939037504}
   resetButton: {fileID: 142673907}

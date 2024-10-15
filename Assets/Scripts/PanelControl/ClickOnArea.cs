@@ -28,6 +28,8 @@ public class ClickOnArea : MonoBehaviour
     Dictionary<string, string[]> areas = new Dictionary<string, string[]>();
     Dictionary<string, Texture2D> maps = new Dictionary<string, Texture2D>();
 
+    bool flash;
+
     void Start()
     {
         material = GetComponent<Renderer>().material;
@@ -47,7 +49,6 @@ public class ClickOnArea : MonoBehaviour
 
     void Update()
     {
-
         if (Input.GetMouseButtonDown(0) && areasPanel.gameObject.activeSelf)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -60,7 +61,7 @@ public class ClickOnArea : MonoBehaviour
 /*int maxValue = pixelColour.g > pixelColour.r ? pixelColour.g : pixelColour.r;
 maxValue = pixelColour.b > maxValue ? pixelColour.b : maxValue;*/
                 string bitString = Convert.ToString(pixelColour.g, 2);
-
+Debug.Log(bitString);
                 if (bitString.Split('1').Length - 1 == 0)   // no set bits
                 {
                     SetEmissionColor(0);
@@ -82,7 +83,24 @@ maxValue = pixelColour.b > maxValue ? pixelColour.b : maxValue;*/
                                 "\n\n", "Parent region: ", areas[areasKey][2].ToLower());
                         }
 
-                        SetEmissionColor(127);
+                        if (bitString.Split('1').Length - 1 > 1)
+                        {
+            if (flash)
+            {
+                SetEmissionColor(63);
+                flash = false;
+            }
+            else
+            {
+                SetEmissionColor(127);
+                flash = true;
+            }
+                        }
+        else
+        {
+            SetEmissionColor(127);
+        }
+
                         GetComponentInParent<PanelButtonController>().ResetAreasPanel(false);
                     }
                 }
