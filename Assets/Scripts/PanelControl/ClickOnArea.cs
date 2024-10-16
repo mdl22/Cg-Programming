@@ -8,6 +8,8 @@ using TMPro;
 
 public class ClickOnArea : MonoBehaviour
 {
+    [SerializeField] GameObject modelButtons;
+
     [SerializeField] Button controlExitButton;
     [SerializeField] Button resetButton;
     [SerializeField] Button areasExitButton;
@@ -45,6 +47,11 @@ public class ClickOnArea : MonoBehaviour
             { SetEmissionColor(0); });
         backButton.GetComponent<Button>().onClick.AddListener(() =>
             { SetEmissionColor(0); });
+
+        foreach (Button button in modelButtons.GetComponentsInChildren<Button>())
+        {
+            button.onClick.AddListener(() => { SetEmissionColor(0); });
+        }
     }
 
     void Update()
