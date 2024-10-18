@@ -30,7 +30,9 @@ public class ClickOnArea : MonoBehaviour
     Dictionary<string, string[]> areas = new Dictionary<string, string[]>();
     Dictionary<string, Texture2D> maps = new Dictionary<string, Texture2D>();
 
-    bool flash;
+    int count = 0;
+    int bitPosition = 0;    // counting from most significant bit
+    string bitString = "";
 
     void Start()
     {
@@ -67,11 +69,12 @@ public class ClickOnArea : MonoBehaviour
 
 /*int maxValue = pixelColour.g > pixelColour.r ? pixelColour.g : pixelColour.r;
 maxValue = pixelColour.b > maxValue ? pixelColour.b : maxValue;*/
-                string bitString = Convert.ToString(pixelColour.g, 2);
+                bitString = Convert.ToString(pixelColour.g, 2);
 Debug.Log(bitString);
                 if (bitString.Split('1').Length - 1 == 0)   // no set bits
                 {
                     SetEmissionColor(0);
+
                     GetComponentInParent<PanelButtonController>().ResetAreasPanel(true);
                 }
                 else
@@ -81,6 +84,7 @@ Debug.Log(bitString);
                     if (areas.ContainsKey(areasKey))
                     {
                         material.SetTexture("_EmissionMap", maps[areasKey]);
+                        SetEmissionColor(127);
             
                         areaTitleText.text = areas[areasKey][0];
                         areaDescriptionText.text = areas[areasKey][1];
@@ -90,27 +94,32 @@ Debug.Log(bitString);
                                 "\n\n", "Parent region: ", areas[areasKey][2].ToLower());
                         }
 
-                        if (bitString.Split('1').Length - 1 > 1)
-                        {
-            if (flash)
-            {
-                SetEmissionColor(63);
-                flash = false;
-            }
-            else
-            {
-                SetEmissionColor(127);
-                flash = true;
-            }
-                        }
-        else
-        {
-            SetEmissionColor(127);
-        }
-
                         GetComponentInParent<PanelButtonController>().ResetAreasPanel(false);
                     }
                 }
+            }
+        }
+
+        if (bitString.Split('1').Length - 1 > 1)    // area has parent area
+        {
+            for (int bit = bitPosition; bit < bitString.Length - 1; bit++)
+            {
+                if (bitString[bit] == '1')
+                {
+                    material.SetTexture("_EmissionMap",
+                        maps[(1 << bitString.Length - 1 - bit).ToString()]);
+                    break;
+                }
+            }
+
+            if (++count == 10)
+            {
+                if (++bitPosition == bitString.Split('1').Length)
+                {
+                    bitPosition = 0;
+                }
+
+                count = 0;
             }
         }
     }
