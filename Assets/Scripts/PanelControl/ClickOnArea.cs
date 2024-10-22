@@ -30,8 +30,10 @@ public class ClickOnArea : MonoBehaviour
     Dictionary<string, string[]> areas = new Dictionary<string, string[]>();
     Dictionary<string, Texture2D> maps = new Dictionary<string, Texture2D>();
 
-    int count = 0;
-    int bitPosition = 0;    // counting from most significant bit
+    int numSetBits;         // total number of '1's in the bit string
+    int setBitCount = 0;    // count of '1's in the bit string
+    int bitPosition = 0;    // starting from the most significant bit
+    float elapsedTime = 0;
     string bitString = "";
 
     void Start()
@@ -71,7 +73,7 @@ public class ClickOnArea : MonoBehaviour
 maxValue = pixelColour.b > maxValue ? pixelColour.b : maxValue;*/
                 bitString = Convert.ToString(pixelColour.g, 2);
 Debug.Log(bitString);
-                if (bitString.Split('1').Length - 1 == 0)   // no set bits
+                if ((numSetBits = bitString.Split('1').Length - 1) == 0)    // no emission map
                 {
                     SetEmissionColor(0);
 
@@ -100,7 +102,7 @@ Debug.Log(bitString);
             }
         }
 
-        if (bitString.Split('1').Length - 1 > 1)    // area has parent area
+        if (numSetBits > 1)     // area has parent area
         {
             for (int bit = bitPosition; bit < bitString.Length - 1; bit++)
             {
@@ -108,18 +110,21 @@ Debug.Log(bitString);
                 {
                     material.SetTexture("_EmissionMap",
                         maps[(1 << bitString.Length - 1 - bit).ToString()]);
+
+                    bitPosition = bit;
                     break;
                 }
             }
 
-            if (++count == 10)
-            {
-                if (++bitPosition == bitString.Split('1').Length)
-                {
-                    bitPosition = 0;
-                }
+            if ((elapsedTime += Time.deltaTime) >= 1)
+            {//Debug.Log(bitPosition);
+                elapsedTime = 0;
+                bitPosition++;
 
-                count = 0;
+                if (++setBitCount == numSetBits)
+                {
+                    bitPosition = setBitCount = 0;
+                }
             }
         }
     }
