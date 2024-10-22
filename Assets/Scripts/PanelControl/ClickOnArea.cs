@@ -25,13 +25,13 @@ public class ClickOnArea : MonoBehaviour
     [SerializeField] Texture2D[] emissionMaps;
     [SerializeField] TextAsset maskTable;
 
+    [SerializeField] float flashTime;
+
     Material material;
 
     Dictionary<string, string[]> areas = new Dictionary<string, string[]>();
     Dictionary<string, Texture2D> maps = new Dictionary<string, Texture2D>();
 
-    int numSetBits;         // total number of '1's in the bit string
-    int setBitCount = 0;    // count of '1's in the bit string
     int bitPosition = 0;    // starting from the most significant bit
     float elapsedTime = 0;
     string bitString = "";
@@ -73,7 +73,7 @@ public class ClickOnArea : MonoBehaviour
 maxValue = pixelColour.b > maxValue ? pixelColour.b : maxValue;*/
                 bitString = Convert.ToString(pixelColour.g, 2);
 Debug.Log(bitString);
-                if ((numSetBits = bitString.Split('1').Length - 1) == 0)    // no emission map
+                if (bitString.Split('1').Length - 1 == 0)   // no emission map
                 {
                     SetEmissionColor(0);
 
@@ -102,9 +102,9 @@ Debug.Log(bitString);
             }
         }
 
-        if (numSetBits > 1)     // area has parent area
+        if (bitString.Split('1').Length - 1 > 1)    // area has parent area
         {
-            for (int bit = bitPosition; bit < bitString.Length - 1; bit++)
+            for (int bit = bitPosition; bit < bitString.Length; bit++)
             {
                 if (bitString[bit] == '1')
                 {
@@ -114,16 +114,17 @@ Debug.Log(bitString);
                     bitPosition = bit;
                     break;
                 }
+
+                bitPosition = 0;    // reset as least significant bit is '0'
             }
 
-            if ((elapsedTime += Time.deltaTime) >= 1)
-            {//Debug.Log(bitPosition);
+            if ((elapsedTime += Time.deltaTime) >= flashTime)
+            {Debug.Log((bitPosition, bitString.Length));
                 elapsedTime = 0;
-                bitPosition++;
 
-                if (++setBitCount == numSetBits)
+                if (++bitPosition >= bitString.Length)
                 {
-                    bitPosition = setBitCount = 0;
+                    bitPosition = 0;
                 }
             }
         }

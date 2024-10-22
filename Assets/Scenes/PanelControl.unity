@@ -2343,6 +2343,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: ab26bc459fb05279fbeb31d1c4dab2c7, type: 3}
   - {fileID: 2800000, guid: 7ebd1589d0f9fcb96aea6c1654319b99, type: 3}
   maskTable: {fileID: 4900000, guid: a8387f2b61025f8cb8926c3fc1a0ca0c, type: 3}
+  flashTime: 1
 --- !u!64 &439545855
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2402,6 +2403,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 8dba6efe1776dfb1ba4be440dd2b3b24, type: 3}
   - {fileID: 2800000, guid: cbcf4e31b666cd71994b80a520da3dbd, type: 3}
   maskTable: {fileID: 4900000, guid: dc7be5d984a275b8b8e71c6ee8adb8b5, type: 3}
+  flashTime: 1
 --- !u!1 &461948703
 GameObject:
   m_ObjectHideFlags: 0
@@ -2928,6 +2930,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: c7a17504fef8dec4db895841a206b7a8, type: 3}
   - {fileID: 2800000, guid: be174d176d35db88fb021888dcd17a38, type: 3}
   maskTable: {fileID: 4900000, guid: b76bf6b209a95e56aa061108951aa6f4, type: 3}
+  flashTime: 1
 --- !u!64 &530327613
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8828,6 +8831,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 3eb92e0cc411a70f48a0d4646aa2aa2d, type: 3}
   - {fileID: 2800000, guid: a61e8a5275d84a92fba2570d8679e3cb, type: 3}
   maskTable: {fileID: 4900000, guid: b0c3bcaa23e38288ea83e5663ad6f039, type: 3}
+  flashTime: 1
 --- !u!64 &1554516807
 MeshCollider:
   m_ObjectHideFlags: 0
