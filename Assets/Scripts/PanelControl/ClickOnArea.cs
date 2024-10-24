@@ -25,14 +25,15 @@ public class ClickOnArea : MonoBehaviour
     [SerializeField] Texture2D[] emissionMaps;
     [SerializeField] TextAsset maskTable;
 
-    [SerializeField] float flashTime;
+    [SerializeField] float flashPeriod;
 
     Material material;
 
     Dictionary<string, string[]> areas = new Dictionary<string, string[]>();
     Dictionary<string, Texture2D> maps = new Dictionary<string, Texture2D>();
 
-    int bitPosition = 0;    // starting from the most significant bit
+    byte emissionIntensity = 0x7F;
+    int bitPosition = 0;            // starting from the most significant bit in bit string
     float elapsedTime = 0;
     string bitString = "";
 
@@ -73,7 +74,7 @@ public class ClickOnArea : MonoBehaviour
 maxValue = pixelColour.b > maxValue ? pixelColour.b : maxValue;*/
                 bitString = Convert.ToString(pixelColour.g, 2);
 Debug.Log(bitString);
-                if (bitString.Split('1').Length - 1 == 0)   // no emission map
+                if (bitString.Split('1').Length == 1)   // no emission map
                 {
                     SetEmissionColor(0);
 
@@ -86,7 +87,7 @@ Debug.Log(bitString);
                     if (areas.ContainsKey(areasKey))
                     {
                         material.SetTexture("_EmissionMap", maps[areasKey]);
-                        SetEmissionColor(127);
+                        SetEmissionColor(emissionIntensity);
             
                         areaTitleText.text = areas[areasKey][0];
                         areaDescriptionText.text = areas[areasKey][1];
@@ -102,7 +103,7 @@ Debug.Log(bitString);
             }
         }
 
-        if (bitString.Split('1').Length - 1 > 1)    // area has parent area
+        if (bitString.Split('1').Length > 2)    // area has parent area
         {
             for (int bit = bitPosition; bit < bitString.Length; bit++)
             {
@@ -110,22 +111,23 @@ Debug.Log(bitString);
                 {
                     material.SetTexture("_EmissionMap",
                         maps[(1 << bitString.Length - 1 - bit).ToString()]);
+                    SetEmissionColor((byte) (bit == 0 ? 0x7F : 0x3F));
 
                     bitPosition = bit;
                     break;
                 }
+                bitPosition = 0;    // reset as least significant bit is '0' and
+            }                       // elapsed time is less than flash period
 
-                bitPosition = 0;    // reset as least significant bit is '0'
-            }
-
-            if ((elapsedTime += Time.deltaTime) >= flashTime)
-            {Debug.Log((bitPosition, bitString.Length));
+            if ((elapsedTime += Time.deltaTime) >= flashPeriod)
+            {
                 elapsedTime = 0;
 
                 if (++bitPosition >= bitString.Length)
                 {
                     bitPosition = 0;
                 }
+
             }
         }
     }
