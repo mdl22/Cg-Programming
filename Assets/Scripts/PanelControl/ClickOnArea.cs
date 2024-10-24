@@ -111,7 +111,8 @@ Debug.Log(bitString);
                 {
                     material.SetTexture("_EmissionMap",
                         maps[(1 << bitString.Length - 1 - bit).ToString()]);
-                    SetEmissionColor((byte) (bit == 0 ? 0x7F : 0x3F));
+                    //SetEmissionColor((byte) (bit == 0 ? 0x7F : 0x3F));
+                    SetEmissionColor((byte) 0x7F, bit == 0);
 
                     bitPosition = bit;
                     break;
@@ -153,8 +154,9 @@ Debug.Log(bitString);
         }
     }
 
-    void SetEmissionColor(byte intensity)
+    void SetEmissionColor(byte intensity, bool parentArea = true)
     {
-        material.SetColor("_EmissionColor", new Color32(intensity, intensity, intensity, 0));
+        material.SetColor("_EmissionColor", parentArea ? 
+            new Color32(intensity, intensity, intensity, 0) : new Color32(intensity, 0, 0, 0));
     }
 }
