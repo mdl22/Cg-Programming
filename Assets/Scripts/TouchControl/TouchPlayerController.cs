@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class TouchPlayerController : MonoBehaviour
 {
-    [SerializeField] Transform customPivot;
-    Vector2 startPosition;
+    Vector2 currentPosition;
     Vector2 changeInPosition;
 
     void Update()
@@ -16,14 +15,11 @@ public class TouchPlayerController : MonoBehaviour
 
             if (touch.phase == TouchPhase.Began)
             {
-                startPosition = touch.position;
+                currentPosition = touch.position;
             }
             else if (touch.phase == TouchPhase.Moved)
             {
-                changeInPosition = startPosition - touch.position;
-
-                // move to world origin using pivot offset
-                transform.position += customPivot.position;
+                changeInPosition = currentPosition - touch.position;
 
                 if (Mathf.Abs(changeInPosition.x) > Mathf.Abs(changeInPosition.y))
                 {
@@ -37,14 +33,11 @@ public class TouchPlayerController : MonoBehaviour
                     transform.localEulerAngles = new Vector3(
                         changeInPosition.y, 0, transform.localEulerAngles.y);
                 }
-
-                // move back to position
-                transform.position -= customPivot.position;
             }
 
             if (touch.tapCount == 1)
             {
-                Ray ray = Camera.main.ScreenPointToRay(startPosition);
+                Ray ray = Camera.main.ScreenPointToRay(currentPosition);
                 if (Physics.Raycast(ray, out RaycastHit hit))
                 {
                     Debug.Log((hit.textureCoord.x, hit.textureCoord.y));

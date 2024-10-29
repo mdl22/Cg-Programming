@@ -5,11 +5,10 @@ using UnityEngine.InputSystem;
 
 public class MouseInputs : MonoBehaviour
 {
-    [SerializeField] Transform customPivot;
     Inputs _inputs;
-    Vector2 currentPos;
-    Vector2 previousPos;
-    Vector2 deltaPos;
+    Vector2 currentPosition;
+    Vector2 newPosition;
+    Vector2 changeInPosition;
 
     void Start()
     {
@@ -21,23 +20,23 @@ public class MouseInputs : MonoBehaviour
     {
         if (_inputs.UI.Click.WasPressedThisFrame())
         {
-            previousPos = _inputs.UI.Point.ReadValue<Vector2>();
-            Debug.Log(previousPos);
+            currentPosition = _inputs.UI.Point.ReadValue<Vector2>();
         }
 
         if (_inputs.UI.Click.IsPressed())
         {
-            currentPos = _inputs.UI.Point.ReadValue<Vector2>();
-            deltaPos = currentPos - previousPos;
+            newPosition = _inputs.UI.Point.ReadValue<Vector2>();
+            changeInPosition = newPosition - currentPosition;
+            currentPosition = newPosition;
 
-            // rotate horizontally
-                transform.RotateAround(customPivot.position, Vector3.down, deltaPos.x);
-
-            // rotate vertically
-                transform.RotateAround(customPivot.position, Vector3.right, deltaPos.y);
-
-            previousPos = currentPos;
-            Debug.Log(currentPos);
+            if (Mathf.Abs(changeInPosition.x) > Mathf.Abs(changeInPosition.y))
+            {
+                transform.Rotate(Vector3.down * changeInPosition.x, Space.World);
+            }
+            else
+            {
+                transform.Rotate(Vector3.right * changeInPosition.y, Space.World);
+            }
         }
     }
 }

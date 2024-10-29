@@ -111,8 +111,7 @@ Debug.Log(bitString);
                 {
                     material.SetTexture("_EmissionMap",
                         maps[(1 << bitString.Length - 1 - bit).ToString()]);
-                    //SetEmissionColor((byte) (bit == 0 ? 0x7F : 0x3F));
-                    SetEmissionColor((byte) 0x7F, bit == 0);
+                    SetEmissionColor((byte) 0x7F, bit == 0);    // area or parent area?
 
                     bitPosition = bit;
                     break;
@@ -123,12 +122,10 @@ Debug.Log(bitString);
             if ((elapsedTime += Time.deltaTime) >= flashPeriod)
             {
                 elapsedTime = 0;
-
                 if (++bitPosition >= bitString.Length)
                 {
                     bitPosition = 0;
                 }
-
             }
         }
     }
