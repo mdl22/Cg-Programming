@@ -11,9 +11,6 @@ public class TouchCameraController : MonoBehaviour
     float currentSeparation = 0;
     float separation;
 
-    Vector2 startTouchPosition;
-    Vector2 changeInPosition;
-
     void Update()
     {
         if (Input.touchCount == 2)

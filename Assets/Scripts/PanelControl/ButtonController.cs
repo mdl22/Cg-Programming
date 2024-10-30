@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PanelButtonController : MonoBehaviour
+public class ButtonController : MonoBehaviour
 {
     [SerializeField] GameObject modelButtonsParent;
 

@@ -78,7 +78,7 @@ Debug.Log(bitString);
                 {
                     SetEmissionColor(0);
 
-                    GetComponentInParent<PanelButtonController>().ResetAreasPanel(true);
+                    GetComponentInParent<ButtonController>().ResetAreasPanel(true);
                 }
                 else
                 {
@@ -97,7 +97,7 @@ Debug.Log(bitString);
                                 "\n\n", "Parent region: ", areas[areasKey][2].ToLower());
                         }
 
-                        GetComponentInParent<PanelButtonController>().ResetAreasPanel(false);
+                        GetComponentInParent<ButtonController>().ResetAreasPanel(false);
                     }
                 }
             }

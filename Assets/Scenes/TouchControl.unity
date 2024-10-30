@@ -4250,8 +4250,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1010161046}
-        m_TargetAssemblyTypeName: PanelButtonController, Assembly-CSharp
+      - m_Target: {fileID: 1010161050}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
         m_MethodName: ResetAreasPanel
         m_Mode: 6
         m_Arguments:
@@ -5294,7 +5294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1010161047}
-  - component: {fileID: 1010161046}
+  - component: {fileID: 1010161050}
   - component: {fileID: 1010161048}
   m_Layer: 0
   m_Name: Brain Models
@@ -5303,31 +5303,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1010161046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010161045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e567a8064ecd2cc8499c9ac3037177a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  modelButtonsParent: {fileID: 1183084372}
-  controlsButton: {fileID: 922654736}
-  exitButton: {fileID: 65470182}
-  areasButton: {fileID: 2014380928}
-  backButton: {fileID: 908643780}
-  controlsPanel: {fileID: 969302284}
-  areasPanel: {fileID: 1453796604}
-  fimbriaFornixPanel: {fileID: 1665759421}
-  sharedInputOutputPanel: {fileID: 216521762}
-  panelTitleText: {fileID: 1909048663}
-  panelListText: {fileID: 33513079}
-  areaTitleText: {fileID: 1028623168}
-  areaDescriptionText: {fileID: 359376266}
 --- !u!4 &1010161047
 Transform:
   m_ObjectHideFlags: 0
@@ -5364,7 +5339,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c9cd6c3154ec2d5daf81a337b6bc09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customPivot: {fileID: 1863407118}
+  exitButton: {fileID: 65470182}
+  resetButton: {fileID: 1687516254}
+--- !u!114 &1010161050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010161045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e567a8064ecd2cc8499c9ac3037177a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelButtonsParent: {fileID: 1183084372}
+  controlsButton: {fileID: 922654736}
+  exitButton: {fileID: 65470182}
+  areasButton: {fileID: 2014380928}
+  backButton: {fileID: 908643780}
+  controlsPanel: {fileID: 969302284}
+  areasPanel: {fileID: 1453796604}
+  fimbriaFornixPanel: {fileID: 1665759421}
+  sharedInputOutputPanel: {fileID: 216521762}
+  panelTitleText: {fileID: 1909048663}
+  panelListText: {fileID: 33513079}
+  areaTitleText: {fileID: 1028623168}
+  areaDescriptionText: {fileID: 359376266}
 --- !u!1 &1010460858
 GameObject:
   m_ObjectHideFlags: 0
@@ -6301,8 +6302,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1010161046}
-        m_TargetAssemblyTypeName: PanelButtonController, Assembly-CSharp
+      - m_Target: {fileID: 1010161050}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
         m_MethodName: ClosePanels
         m_Mode: 6
         m_Arguments:
@@ -9174,8 +9175,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1010161046}
-        m_TargetAssemblyTypeName: PanelButtonController, Assembly-CSharp
+      - m_Target: {fileID: 1010161050}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
         m_MethodName: ClosePanels
         m_Mode: 6
         m_Arguments:
@@ -10352,6 +10353,7 @@ GameObject:
   - component: {fileID: 1997581436}
   - component: {fileID: 1997581435}
   - component: {fileID: 1997581438}
+  - component: {fileID: 1997581439}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -10440,6 +10442,18 @@ MonoBehaviour:
   minOrthographicSize: 0.02
   maxOrthographicSize: 0.1
   scaling: 0.0002
+--- !u!114 &1997581439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997581433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8fdebf63003fcd68ef5b922d0ff8a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2014380927
 GameObject:
   m_ObjectHideFlags: 0
