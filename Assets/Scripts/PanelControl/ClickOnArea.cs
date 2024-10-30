@@ -45,17 +45,17 @@ public class ClickOnArea : MonoBehaviour
         SetUpEmissionMaps();
 
         controlExitButton.GetComponent<Button>().onClick.AddListener(() =>
-            { SetEmissionColor(0); });
+            { SetEmissionColor(0, true); });
         resetButton.GetComponent<Button>().onClick.AddListener(() =>
-            { SetEmissionColor(0); });
+            { SetEmissionColor(0, true); });
         areasExitButton.GetComponent<Button>().onClick.AddListener(() =>
-            { SetEmissionColor(0); });
+            { SetEmissionColor(0, true); });
         backButton.GetComponent<Button>().onClick.AddListener(() =>
-            { SetEmissionColor(0); });
+            { SetEmissionColor(0, true); });
 
         foreach (Button button in modelButtons.GetComponentsInChildren<Button>())
         {
-            button.onClick.AddListener(() => { SetEmissionColor(0); });
+            button.onClick.AddListener(() => { SetEmissionColor(0, true); });
         }
     }
 
@@ -111,7 +111,7 @@ Debug.Log(bitString);
                 {
                     material.SetTexture("_EmissionMap",
                         maps[(1 << bitString.Length - 1 - bit).ToString()]);
-                    SetEmissionColor((byte) 0x7F, bit == 0);    // area or parent area?
+                    SetEmissionColor((byte) 0x7F, false, bit == 1);     // area or parent area?
 
                     bitPosition = bit;
                     break;
@@ -151,9 +151,13 @@ Debug.Log(bitString);
         }
     }
 
-    void SetEmissionColor(byte intensity, bool parentArea = true)
+    void SetEmissionColor(byte intensity, bool resetBitString = false, bool parentArea = false)
     {
+        if (resetBitString)
+        {
+            bitString = "";
+        }
         material.SetColor("_EmissionColor", parentArea ? 
-            new Color32(intensity, intensity, intensity, 0) : new Color32(intensity, 0, 0, 0));
+            new Color32(intensity, 0, 0, 0) : new Color32(intensity, intensity, intensity, 0));
     }
 }

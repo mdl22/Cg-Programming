@@ -33,16 +33,17 @@ public class TouchCameraController : MonoBehaviour
         }
         else if (Input.touchCount == 3)
         {
-            /*public void PanAlongXAxis()
-            {
-                transform.position = new Vector3(
-                    -panLeftRightSlider.value, transform.position.y, transform.position.z);
-            }
+            /*newPosition = _inputs.UI.Point.ReadValue<Vector2>();
+            changeInPosition = newPosition - currentPosition;
+            currentPosition = newPosition;
 
-            public void PanAlongYAxis()
+            if (Mathf.Abs(changeInPosition.x) > Mathf.Abs(changeInPosition.y))
             {
-                transform.position = new Vector3(
-                    transform.position.x, -panUpDownSlider.value, transform.position.z);
+                transform.Rotate(Vector3.down * changeInPosition.x, Space.World);
+            }
+            else
+            {
+                transform.Rotate(Vector3.right * changeInPosition.y, Space.World);
             }*/
         }
     }
