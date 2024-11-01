@@ -32,7 +32,7 @@ public class ClickOnArea : MonoBehaviour
     Dictionary<string, string[]> areas = new Dictionary<string, string[]>();
     Dictionary<string, Texture2D> maps = new Dictionary<string, Texture2D>();
 
-    byte emissionIntensity = 0x7F;
+    byte emissionIntensity = 0xBF;
     int bitPosition = 0;            // starting from the most significant bit in bit string
     float elapsedTime = 0;
     string bitString = "";
@@ -111,7 +111,7 @@ Debug.Log(bitString);
                 {
                     material.SetTexture("_EmissionMap",
                         maps[(1 << bitString.Length - 1 - bit).ToString()]);
-                    SetEmissionColor((byte) 0x7F, false, bit == 1);     // area or parent area?
+                    SetEmissionColor(bit == 0 ? (byte) emissionIntensity : (byte) 0x7F);
 
                     bitPosition = bit;
                     break;
@@ -151,13 +151,12 @@ Debug.Log(bitString);
         }
     }
 
-    void SetEmissionColor(byte intensity, bool resetBitString = false, bool parentArea = false)
+    void SetEmissionColor(byte intensity, bool resetBitString = false)
     {
         if (resetBitString)
         {
             bitString = "";
         }
-        material.SetColor("_EmissionColor", parentArea ? 
-            new Color32(intensity, 0, 0, 0) : new Color32(intensity, intensity, intensity, 0));
+        material.SetColor("_EmissionColor", new Color32(intensity, intensity, intensity, 0));
     }
 }
