@@ -33,8 +33,8 @@ public class ClickOnArea : MonoBehaviour
     Dictionary<string, Texture2D> maps = new Dictionary<string, Texture2D>();
 
     byte emissionIntensity = 0xBF;
-    int bitPosition = 0;            // starting from the most significant bit in bit string
-    float elapsedTime = 0;
+    int bitPosition;            // starting from the most significant bit in bit string
+    float elapsedTime;
     string bitString = "";
 
     void Start()
@@ -78,7 +78,7 @@ Debug.Log(bitString);
                 {
                     SetEmissionColor(0);
 
-                    GetComponentInParent<ButtonController>().ResetAreasPanel(true);
+                    GetComponentInParent<PanelButtonController>().ResetAreasPanel(true);
                 }
                 else
                 {
@@ -97,7 +97,7 @@ Debug.Log(bitString);
                                 "\n\n", "Parent region: ", areas[areasKey][2].ToLower());
                         }
 
-                        GetComponentInParent<ButtonController>().ResetAreasPanel(false);
+                        GetComponentInParent<PanelButtonController>().ResetAreasPanel(false);
                     }
                 }
             }
