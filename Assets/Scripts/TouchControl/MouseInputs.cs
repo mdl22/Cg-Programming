@@ -6,12 +6,15 @@ using UnityEngine.UI;
 
 public class MouseInputs : MonoBehaviour
 {
+    [SerializeField] GameObject modelButtons;
+
     [SerializeField] Button controlButton;
     [SerializeField] Button exitButton;
     [SerializeField] Button ZoomInButton;
     [SerializeField] Button ZoomOutButton;
     [SerializeField] Button resetButton;
 
+    float startOrthographicSize;
     Vector3 startPosition;
     Quaternion startRotation;
 
@@ -24,8 +27,14 @@ public class MouseInputs : MonoBehaviour
         exitButton.GetComponent<Button>().onClick.AddListener(Reset);
         resetButton.GetComponent<Button>().onClick.AddListener(Reset);
 
+        foreach (Button button in modelButtons.GetComponentsInChildren<Button>())
+        {
+            button.onClick.AddListener(Reset);
+        }
+
         startPosition = transform.position;
         startRotation = transform.rotation;
+        startOrthographicSize = Camera.main.orthographicSize;
     }
 
     void Update()
@@ -55,5 +64,6 @@ public class MouseInputs : MonoBehaviour
     {
         transform.position = startPosition;
         transform.rotation = startRotation;
+        Camera.main.orthographicSize = startOrthographicSize;
     }
 }

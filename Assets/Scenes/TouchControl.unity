@@ -4032,6 +4032,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minOrthographicSize: 0.02
+  sizeChangeSpeed: 0.001
   buttonPressed: 0
 --- !u!1 &966139186 stripped
 GameObject:
@@ -4317,6 +4318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c9cd6c3154ec2d5daf81a337b6bc09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  modelButtons: {fileID: 1183084372}
   controlButton: {fileID: 922654736}
   exitButton: {fileID: 65470182}
   ZoomInButton: {fileID: 947601036}
@@ -7098,6 +7100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minOrthographicSize: 0.02
+  sizeChangeSpeed: 0.001
   buttonPressed: 0
 --- !u!4 &1583168783 stripped
 Transform:
