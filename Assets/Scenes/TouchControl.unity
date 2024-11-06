@@ -4324,6 +4324,7 @@ MonoBehaviour:
   ZoomInButton: {fileID: 947601036}
   ZoomOutButton: {fileID: 1466532665}
   resetButton: {fileID: 1687516254}
+  scale: 0.001
 --- !u!114 &1010161050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8566,7 +8567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minOrthographicSize: 0.02
   maxOrthographicSize: 0.1
-  scaling: 0.0002
+  scaling: 0.0001
 --- !u!1 &2014380927
 GameObject:
   m_ObjectHideFlags: 0

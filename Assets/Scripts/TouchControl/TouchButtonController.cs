@@ -31,20 +31,17 @@ public class TouchButtonController : MonoBehaviour, IPointerDownHandler, IPointe
         if (buttonPressed)
         {
             float sizeChange = sizeChangeSpeed * Time.deltaTime;
+
             if (EventSystem.current.currentSelectedGameObject.name == "ZoomIn Button")
             {
-                Camera.main.orthographicSize -= sizeChangeSpeed;
-
-                if (Camera.main.orthographicSize < minOrthographicSize)
+                if ((Camera.main.orthographicSize -= sizeChangeSpeed) < minOrthographicSize)
                 {
                     Camera.main.orthographicSize = minOrthographicSize;
                 }
             }
             else
             {
-                Camera.main.orthographicSize += sizeChangeSpeed;
-
-                if (Camera.main.orthographicSize > startOrthographicSize)
+                if ((Camera.main.orthographicSize += sizeChangeSpeed) > startOrthographicSize)
                 {
                     Camera.main.orthographicSize = startOrthographicSize;
                 }
