@@ -20,7 +20,6 @@ public class MouseInputs : MonoBehaviour
     Vector3 startPosition;
     Vector3 startCameraPosition;
     float startOrthographicSize;
-    bool clicked;
 
     Vector2 currentPosition;
     Vector2 newPosition;
@@ -50,15 +49,7 @@ public class MouseInputs : MonoBehaviour
             if (!controlButton.gameObject.activeSelf &&
                 !EventSystem.current.IsPointerOverGameObject())
             {
-                if (clicked)
-                {
-                    newPosition = Input.mousePosition;
-                }
-                else
-                {
-                    newPosition = currentPosition;
-                    clicked = true;
-                }
+                newPosition = Input.mousePosition;
                 dist = newPosition - currentPosition;
                 currentPosition = newPosition;
 
@@ -67,7 +58,7 @@ public class MouseInputs : MonoBehaviour
                     transform.Rotate(Mathf.Abs(dist.x) > Mathf.Abs(dist.y) ?
                         Vector3.down * dist.x : Vector3.right * dist.y, Space.World);
                 }
-                else
+                else if (Input.GetMouseButton(1))
                 {
                     Camera.main.transform.position -= Mathf.Abs(dist.x) > Mathf.Abs(dist.y) ?
                         new Vector3(dist.x * 2*scale, 0, 0) : new Vector3(0, dist.y * scale, 0);
@@ -76,7 +67,7 @@ public class MouseInputs : MonoBehaviour
         }
         else
         {
-            clicked = false;
+            currentPosition = Input.mousePosition;
         }
     }
 
