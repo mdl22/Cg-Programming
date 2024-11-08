@@ -19,11 +19,8 @@ public class MouseInputs : MonoBehaviour
     Quaternion startRotation;
     Vector3 startPosition;
     Vector3 startCameraPosition;
+    Vector3 currentMousePosition;
     float startOrthographicSize;
-
-    Vector2 currentPosition;
-    Vector2 newPosition;
-    Vector2 dist;
 
     void Start()
     {
@@ -31,7 +28,7 @@ public class MouseInputs : MonoBehaviour
         resetButton.GetComponent<Button>().onClick.AddListener(Reset);
 
         foreach (Button button in modelButtons.GetComponentsInChildren<Button>())
-        {
+        {            
             button.onClick.AddListener(Reset);
         }
 
@@ -49,25 +46,25 @@ public class MouseInputs : MonoBehaviour
             if (!controlButton.gameObject.activeSelf &&
                 !EventSystem.current.IsPointerOverGameObject())
             {
-                newPosition = Input.mousePosition;
-                dist = newPosition - currentPosition;
-                currentPosition = newPosition;
+                Vector3 dist = Input.mousePosition - currentMousePosition;
+                currentMousePosition = Input.mousePosition;
 
                 if (Input.GetMouseButton(0))
                 {
                     transform.Rotate(Mathf.Abs(dist.x) > Mathf.Abs(dist.y) ?
-                        Vector3.down * dist.x : Vector3.right * dist.y, Space.World);
+                        Vector3.down*dist.x * 360/Screen.width :
+                        Vector3.right*dist.y * 360/Screen.height, Space.World);
                 }
                 else if (Input.GetMouseButton(1))
                 {
-                    Camera.main.transform.position -= Mathf.Abs(dist.x) > Mathf.Abs(dist.y) ?
-                        new Vector3(dist.x * 2*scale, 0, 0) : new Vector3(0, dist.y * scale, 0);
+                    Camera.main.transform.position -= new Vector3(
+                        dist.x * 2*scale/Screen.width, dist.y * scale/Screen.height, 0);
                 }
             }
         }
         else
         {
-            currentPosition = Input.mousePosition;
+            currentMousePosition = Input.mousePosition;
         }
     }
 
