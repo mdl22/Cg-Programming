@@ -8,7 +8,8 @@ public class PanelButtonController : MonoBehaviour
 {
     [SerializeField] GameObject modelButtonsParent;
 
-    [SerializeField] Button controlsButton;
+    [SerializeField] Button mouseControlButton;
+    [SerializeField] Button touchControlButton;
     [SerializeField] Button exitButton;
     [SerializeField] Button areasButton;
     [SerializeField] Button backButton;
@@ -73,7 +74,8 @@ public class PanelButtonController : MonoBehaviour
     public void ClosePanels(bool active)
     {
         controlsPanel.gameObject.SetActive(active);
-        controlsButton.gameObject.SetActive(!active);
+        mouseControlButton.gameObject.SetActive(!active);
+        touchControlButton.gameObject.SetActive(!active);
 
         areasPanel.gameObject.SetActive(false);
         foreach (Transform child in transform)

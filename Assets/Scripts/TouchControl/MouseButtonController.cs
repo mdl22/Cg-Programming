@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TouchButtonController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class MouseButtonController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] float minOrthographicSize;
     [SerializeField] float sizeChangeSpeed;
 
     float startOrthographicSize;
-    public bool buttonPressed;
+    bool buttonPressed;
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -30,18 +30,18 @@ public class TouchButtonController : MonoBehaviour, IPointerDownHandler, IPointe
     {
         if (buttonPressed)
         {
-            float sizeChange = sizeChangeSpeed * Time.deltaTime;
+            float sizeChange = sizeChangeSpeed * Screen.width * Time.deltaTime;
 
             if (EventSystem.current.currentSelectedGameObject.name == "ZoomIn Button")
             {
-                if ((Camera.main.orthographicSize -= sizeChangeSpeed) < minOrthographicSize)
+                if ((Camera.main.orthographicSize -= sizeChange) < minOrthographicSize)
                 {
                     Camera.main.orthographicSize = minOrthographicSize;
                 }
             }
             else
             {
-                if ((Camera.main.orthographicSize += sizeChangeSpeed) > startOrthographicSize)
+                if ((Camera.main.orthographicSize += sizeChange) > startOrthographicSize)
                 {
                     Camera.main.orthographicSize = startOrthographicSize;
                 }

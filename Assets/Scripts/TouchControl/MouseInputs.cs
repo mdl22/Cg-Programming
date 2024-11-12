@@ -58,7 +58,7 @@ public class MouseInputs : MonoBehaviour
                 else if (Input.GetMouseButton(1))
                 {
                     Camera.main.transform.position -= new Vector3(
-                        dist.x * 2*scale/Screen.width, dist.y * scale/Screen.height, 0);
+                        dist.x * scale/Screen.height, dist.y * scale/Screen.height, 0);
                 }
             }
         }

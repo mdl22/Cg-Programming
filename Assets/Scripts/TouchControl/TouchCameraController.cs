@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class TouchCameraController : MonoBehaviour
 {
-    [SerializeField] float minOrthographicSize = 0.02f;
-    [SerializeField] float maxOrthographicSize = 0.1f;
+    [SerializeField] float minOrthographicSize;
     [SerializeField] float scaling = 0.0002f;
 
-    float currentSeparation = 0;
+    float startOrthographicSize;
+    float currentSeparation;
     float separation;
+
+    void Start()
+    {
+        startOrthographicSize = Camera.main.orthographicSize;
+    }
 
     void Update()
     {
@@ -23,7 +28,7 @@ public class TouchCameraController : MonoBehaviour
                 Camera.main.orthographicSize =
                     minOrthographicSize * scaling * (separation - currentSeparation);
 
-                if (Camera.main.orthographicSize > maxOrthographicSize)
+                if (Camera.main.orthographicSize > startOrthographicSize)
                 {
                     Camera.main.orthographicSize = minOrthographicSize;
                 }
