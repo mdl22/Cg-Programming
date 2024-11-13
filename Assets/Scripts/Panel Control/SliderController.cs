@@ -7,8 +7,6 @@ public class SliderController : MonoBehaviour
 {
     [SerializeField] GameObject modelButtons;
 
-    [SerializeField] Transform customPivot;
-
     [SerializeField] Button exitButton;
     [SerializeField] Button resetButton;
 
